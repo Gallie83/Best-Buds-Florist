@@ -2,13 +2,13 @@ from django.shortcuts import render
 from .models import Product
 
 
-def Products(request):
+def products(request):
     """ Returns Product selection page """
 
     return render(request, 'products/products.html')
 
 
-def Flowers(request):
+def flowers(request):
     """ Returns Bouquet products page """
 
     product = Product.objects.filter(type='FL')
@@ -17,10 +17,10 @@ def Flowers(request):
         'product': product
     }
 
-    return render(request, 'products/bouquets.html', context)
+    return render(request, 'products/flowers.html', context)
 
 
-def Bouquets(request):
+def bouquets(request):
     """ Returns Bouquet products page """
 
     product = Product.objects.filter(type='BQ')
@@ -30,3 +30,15 @@ def Bouquets(request):
     }
 
     return render(request, 'products/bouquets.html', context)
+
+
+def indoor_plants(request):
+    """ Returns Bouquet products page """
+
+    product = Product.objects.filter(type='IP')
+
+    context = {
+        'product': product
+    }
+
+    return render(request, 'products/indoor_plants.html', context)
