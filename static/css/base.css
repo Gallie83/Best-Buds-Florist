@@ -6,6 +6,10 @@ html {
     background-color: #FF9bdB;
 } */
 
+.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+}
 
 #carouselExampleIndicators {
     max-height: 30rem;
