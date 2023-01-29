@@ -8,10 +8,10 @@ def products(request):
     return render(request, 'products/products.html')
 
 
-def flowers(request):
+def specials(request):
     """ Returns Bouquet products page """
 
-    product = Product.objects.filter(type='FL')
+    product = Product.objects.filter(type='SP')
 
     context = {
         'product': product

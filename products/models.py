@@ -2,7 +2,7 @@ from django.db import models
 
 
 type = (
-    ('FL', 'Flower'),
+    ('SP', 'Special'),
     ('BQ', 'Bouquet'),
     ('IP', 'Indoor Plants'),
 )
