@@ -17,7 +17,7 @@ def specials(request):
         'product': product
     }
 
-    return render(request, 'products/flowers.html', context)
+    return render(request, 'products/specials.html', context)
 
 
 def bouquets(request):

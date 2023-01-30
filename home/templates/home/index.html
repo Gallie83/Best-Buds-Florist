@@ -49,10 +49,11 @@
 
             {% for products in product %}
             <div class="col-lg-3 col-md-6 mb-4">
-                <div class="card">
-                    <div class="bg-image hover-zoom ripple ripple-surface ripple-surface-light"
+                <div class="card border border-dark">
+                    <div class="bg-image hover-zoom ripple ripple-surface ripple-surface-light mt-1"
                         data-mdb-ripple-color="light">
-                        <img src="{{ products.image.url }}" class="img-fluid card-image rounded m-2" />
+                        <img src="{{ products.image.url }}"
+                            class="img-fluid card-image rounded m-2 border border-dark" />
                         <a href="#!">
                         </a>
                     </div>
