@@ -8,38 +8,44 @@
 {% include 'navbar.html' %}
 
 
-<div class="container mt-5">
+<section class="container mt-4">
 
-    <div class="row">
+    <div class="row text-center">
         <div class="col-md-6 mb-4">
-            <img src="{{ product.image.url }}" class="img-fluid" alt="" />
+            <img src="{{ product.image.url }}" class="img-fluid detail-image" alt="" />
         </div>
 
         <div class="col-md-6 mb-4">
-            <!--Content-->
-            <div class="p-4">
+            <h2 class="py-2">{{ product.name }}
+                <hr class="w-75 mx-auto pt-2">
+            </h2>
 
-                <p class="lead">
-                    <span>€{{ product.price }}</span>
-                </p>
-
+            <div>
                 <strong>
                     <p>Description</p>
                 </strong>
 
-                <p></p>
+                <p class="w-75 mx-auto"> {{ product.description}} </p>
+                <br>
+            </div>
+            <p>
+                <strong>€{{ product.price }}</strong>
+            </p>
 
-                <form class="d-flex justify-content-left">
-                    <div class="form-outline me-1" style="width: 100px;">
-                        <input type="number" value="1" class="form-control" />
+            <div class="mx-auto w-50">
+                <form class="mx-auto">
+                    <div class="form-outline me-1 d-inline-block">
+                        <label for="quantity">Quantity:</label>
+                        <input type="number" value="1" class="form-control" id="quantity" />
                     </div>
-                    <button class="btn btn-primary ms-1" type="submit">
+                    <button class="btn d-block mx-auto mt-3 border border-dark" type="submit">
                         Add to cart
-                        <i class="fas fa-shopping-cart ms-1"></i>
+                        <i class="fas fa-shopping-cart"></i>
                     </button>
                 </form>
             </div>
         </div>
     </div>
-</div>
+    </div>
+</section>
 {% endblock %}
