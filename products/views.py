@@ -1,20 +1,20 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Product
 
 
 def products(request):
-    """ Returns Product selection page """
+    """ Returns Product type selection page """
 
     return render(request, 'products/products.html')
 
 
 def specials(request):
-    """ Returns Bouquet products page """
+    """ Returns Specials products page """
 
-    product = Product.objects.filter(type='SP')
+    products = Product.objects.filter(type='SP')
 
     context = {
-        'product': product
+        'products': products
     }
 
     return render(request, 'products/specials.html', context)
@@ -23,22 +23,34 @@ def specials(request):
 def bouquets(request):
     """ Returns Bouquet products page """
 
-    product = Product.objects.filter(type='BQ')
+    products = Product.objects.filter(type='BQ')
 
     context = {
-        'product': product
+        'products': products
     }
 
     return render(request, 'products/bouquets.html', context)
 
 
 def indoor_plants(request):
-    """ Returns Bouquet products page """
+    """ Returns Indoor Plants page """
 
-    product = Product.objects.filter(type='IP')
+    products = Product.objects.filter(type='IP')
 
     context = {
-        'product': product
+        'products': products
     }
 
     return render(request, 'products/indoor_plants.html', context)
+
+
+def product_details(request, product_id):
+    """ Shows individual product details """
+
+    product = get_object_or_404(Product, pk=product_id)
+
+    context = {
+        'product': product,
+    }
+
+    return render(request, 'products/product_details.html', context)

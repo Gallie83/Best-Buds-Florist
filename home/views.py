@@ -7,10 +7,10 @@ from products.models import Product
 def index(request):
     """ Returns index.html """
 
-    product = Product.objects.all()
+    products = Product.objects.all()
 
     context = {
-        'product': product
+        'products': products
     }
 
     return render(request, 'home/index.html', context)
