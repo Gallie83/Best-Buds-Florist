@@ -4,46 +4,22 @@ from django.db.models import Q
 from .models import Product
 
 
-def products(request):
+def collections(request):
     """ Returns Product type selection page """
 
-    return render(request, 'products/products.html')
+    return render(request, 'products/collections.html')
 
 
-def specials(request):
-    """ Returns Specials products page """
+def products(request):
+    """ Returns all products page """
 
-    products = Product.objects.filter(type='SP')
-
-    context = {
-        'products': products
-    }
-
-    return render(request, 'products/specials.html', context)
-
-
-def bouquets(request):
-    """ Returns Bouquet products page """
-
-    products = Product.objects.filter(type='BQ')
+    products = Product.objects.all()
 
     context = {
         'products': products
     }
 
-    return render(request, 'products/bouquets.html', context)
-
-
-def indoor_plants(request):
-    """ Returns Indoor Plants page """
-
-    products = Product.objects.filter(type='IP')
-
-    context = {
-        'products': products
-    }
-
-    return render(request, 'products/indoor_plants.html', context)
+    return render(request, 'products/products.html', context)
 
 
 def product_details(request, product_id):
@@ -80,4 +56,4 @@ def product_search(request):
         'search_term': query,
     }
 
-    return render(request, 'products/product_search.html', context)
+    return render(request, 'products/products.html', context)

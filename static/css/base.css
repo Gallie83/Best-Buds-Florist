@@ -4,7 +4,6 @@ html {
 
 .navbar {
     background-color: #e6e3e5;
-    overflow: hidden;
 }
 
 .dropdown:hover .dropdown-menu {
