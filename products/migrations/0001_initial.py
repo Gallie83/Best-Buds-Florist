@@ -14,11 +14,13 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Product',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.BigAutoField(auto_created=True, primary_key=True,
+                 serialize=False, verbose_name='ID', blank=True, null=True)),
                 ('sku', models.CharField(blank=True, max_length=254, null=True)),
                 ('name', models.CharField(max_length=254)),
                 ('description', models.TextField()),
-                ('type', models.CharField(choices=[('FL', 'flower'), ('BQ', 'bouquet'), ('IP', 'indoor_plants')], max_length=2)),
+                ('type', models.CharField(choices=[
+                 ('FL', 'flower'), ('BQ', 'bouquet'), ('IP', 'indoor_plants')], max_length=2)),
                 ('price', models.DecimalField(decimal_places=2, max_digits=6)),
                 ('image', models.ImageField(blank=True, null=True, upload_to='')),
             ],

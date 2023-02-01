@@ -6,8 +6,21 @@
         <div class="text-center">
             <div class="row">
                 <div class="col-sm">
-                    <i class="fa-solid fa-magnifying-glass p-3"></i>
+
+                    <!-- Search Bar -->
+                    <form method="GET" action="{% url 'product_search' %}" class="w-50 mx-auto mt-2">
+                        <div class="input-group">
+                            <input type="search" class="form-control rounded" name="q" placeholder="Search for products"
+                                aria-label="Search" aria-describedby="search-addon" />
+                            <span class="input-group-text border-0" id="search-addon">
+                                <i class="fas fa-search"></i>
+                            </span>
+                        </div>
+                    </form>
+
                 </div>
+
+                <!-- Brand Logo -->
                 <div class="col-sm">
                     <a href="{% url 'home' %}">
                         <img src="/media/best-buds-logo.png" class="rounded-circle border border-dark" height="100">
