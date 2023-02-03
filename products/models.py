@@ -2,8 +2,8 @@ from django.db import models
 
 
 type = (
-    ('SP', 'Special'),
-    ('BQ', 'Bouquet'),
+    ('SP', 'Specials'),
+    ('BQ', 'Bouquets'),
     ('IP', 'Indoor Plants'),
 )
 

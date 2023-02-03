@@ -21,6 +21,11 @@ def products(request):
     query = None
 
     if request.GET:
+        # Sorting type
+        if 'type' in request.GET:
+            typeSet = request.GET['type']
+            products = products.filter(type=typeSet)
+
         # Sorting functionality
         if 'sort' in request.GET:
             sortKey = request.GET['sort']
@@ -36,11 +41,6 @@ def products(request):
                     sortKey = f'-{sortKey}'
             products = products.order_by(sortKey)
 
-        # Sorting type
-        if 'type' in request.GET:
-            typeSet = request.GET['type']
-            products = products.filter(type=typeSet)
-
         # Searching functionality
         if 'q' in request.GET:
             query = request.GET['q']
@@ -52,9 +52,12 @@ def products(request):
                 description__icontains=query)
             products = Product.objects.filter(queries)
 
+    current_sort = f'{sort}_{direction}'
+
     context = {
         'products': products,
         'search_term': query,
+        'current_sorting': current_sort,
     }
 
     return render(request, 'products/products.html', context)

@@ -12,10 +12,11 @@
 
     <br>
     <div class="text-center">
-
         <div class="row">
 
-            <h2 class="col-6">All Products</h2>
+
+
+            <h2 class="col-6"></h2>
 
             <li class="col-6 dropdown">
                 <p>Sort By</p>
@@ -30,6 +31,8 @@
         </div>
 
         <div class="row">
+
+            {% if products %}
             {% for product in products %}
             <div class="col-lg-3 col-md-6 mb-4">
                 <a href="{% url 'product_details' product.id %}">
@@ -50,8 +53,14 @@
                 </a>
             </div>
             {% endfor %}
+            {% else %}
+            <div class="mt-5">
+                <h2>No Results</h2>
+                <br>
+                <p>Sorry! Your search doesn't match anything we have at the moment.</p>
+                {% endif %}
+            </div>
         </div>
-    </div>
 </section>
 
 
