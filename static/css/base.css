@@ -1,5 +1,6 @@
 :root {
     --light: #f9f3e6;
+    --middle: #f2ccbb;
     --baige: #e5c3b1;
 }
 
@@ -12,12 +13,8 @@ body {
 
 }
 
-.carousel-div {
-    background-color: var(--light);
-}
-
 .navbar {
-    background-color: var(--pink);
+    background-color: var(--baige);
 }
 
 .account-icon {
@@ -59,9 +56,9 @@ body {
 }
 
 .details {
-    background-color: var(--pink);
+    background-color: var(--middle);
 }
 
 .card {
-    background-color: var(--pink);
+    background-color: var(--middle);
 }
