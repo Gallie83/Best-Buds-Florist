@@ -1,9 +1,23 @@
+:root {
+    --light: #f9f3e6;
+    --baige: #e5c3b1;
+}
+
 html {
     height: 100%;
 }
 
+body {
+    background-color: var(--light);
+
+}
+
+.carousel-div {
+    background-color: var(--light);
+}
+
 .navbar {
-    background-color: #e6e3e5;
+    background-color: var(--pink);
 }
 
 .account-icon {
@@ -40,14 +54,14 @@ html {
 
 .detail-image {
     width: 100%;
-    max-height: 35rem;
-    object-fit: cover;
+    max-height: 30rem;
+    object-fit: contain;
+}
+
+.details {
+    background-color: var(--pink);
 }
 
 .card {
-    background-color: #bdb196;
+    background-color: var(--pink);
 }
-
-/* .container {
-    background-color: #ff97f5;
-} */
