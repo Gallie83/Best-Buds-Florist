@@ -12,8 +12,24 @@
 
     <br>
     <div class="text-center">
+
         <div class="row">
 
+            <h2 class="col-6">All Products</h2>
+
+            <li class="col-6 dropdown">
+                <p>Sort By</p>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="{% url 'products' %}?sort=price&direction=asc"> Price(Low to
+                            High) </a></li>
+                    <li><a class="dropdown-item" href="{% url 'products' %}?sort=price&direction=desc"> Price(High to
+                            Low) </a></li>
+            </li>
+            </ul>
+            </li>
+        </div>
+
+        <div class="row">
             {% for product in products %}
             <div class="col-lg-3 col-md-6 mb-4">
                 <a href="{% url 'product_details' product.id %}">

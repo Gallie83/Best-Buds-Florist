@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.db.models.functions import Lower
 from django.contrib import messages
 from django.db.models import Q
 from .models import Product
@@ -11,9 +12,77 @@ def collections(request):
 
 
 def products(request):
-    """ Returns all products page """
+    """ Returns all products page, including sorting """
 
     products = Product.objects.all()
+
+    sort = None
+    direction = None
+
+    if 'sort' in request.GET:
+        sortKey = request.GET['sort']
+        sort = sortKey
+        if sortKey == 'name':
+            sortKey = 'lower_name'
+            products = products.annotate(lower_name=Lower('name'))
+
+        if 'direction' in request.GET:
+            direction = request.GET['direction']
+            if direction == 'desc':
+                sortKey = f'-{sortKey}'
+        products = products.order_by(sortKey)
+
+    context = {
+        'products': products
+    }
+
+    return render(request, 'products/products.html', context)
+
+
+def bouquets(request):
+    """ Returns page with only bouquets """
+
+    products = Product.objects.filter(type='BQ')
+
+    sort = None
+    direction = None
+
+    if 'sort' in request.GET:
+        sortKey = request.GET['sort']
+        sort = sortKey
+        if sortKey == 'name':
+            sortKey = 'lower_name'
+            products = products.annotate(lower_name=Lower('name'))
+
+        if 'direction' in request.GET:
+            direction = request.GET['direction']
+            if direction == 'desc':
+                sortKey = f'-{sortKey}'
+        products = products.order_by(sortKey)
+
+    context = {
+        'products': products
+    }
+
+    return render(request, 'products/products.html', context)
+
+
+def specials(request):
+    """ Returns page with only specials """
+
+    products = Product.objects.filter(type='SP')
+
+    context = {
+        'products': products
+    }
+
+    return render(request, 'products/products.html', context)
+
+
+def indoor_plants(request):
+    """ Returns page with only indoor plants """
+
+    products = Product.objects.filter(type='IP')
 
     context = {
         'products': products

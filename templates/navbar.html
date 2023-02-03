@@ -5,7 +5,7 @@
     <div class="w-100">
         <div class="text-center">
             <div class="row">
-                <div class="col-sm">
+                <div class="col-4">
 
                     <!-- Search Bar -->
                     <form method="GET" action="{% url 'products' %}" class="w-50 mx-auto mt-2">
@@ -21,16 +21,16 @@
                 </div>
 
                 <!-- Brand Logo -->
-                <div class="col-sm">
+                <div class="col-4">
                     <a href="{% url 'home' %}">
                         <img src="/media/best-buds-logo.png" class="rounded-circle border border-dark" height="100">
                     </a>
                 </div>
 
 
-                <div class="col-sm mt-2 overflow-hidden">
+                <div class="col-4 mt-2 account-icon">
                     <i class="fa-solid fa-user p-2"></i>
-                    <i class="fa-solid fa-bag-shopping p-2"></i>
+                    <i class="fa-solid fa-bag-shopping"></i>
                 </div>
             </div>
         </div>
@@ -47,9 +47,11 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="{% url 'products' %}"> All Products </a></li>
-                        <li><a class="dropdown-item" href=""> Specials </a></li>
-                        <li><a class="dropdown-item" href=""> Bouquets </a></li>
-                        <li><a class="dropdown-item" href=""> Indoor Plants </a></li>
+                        <li><a class="dropdown-item" href="{% url 'specials' %}"> Specials </a></li>
+                        <li><a class="dropdown-item" href="{% url 'bouquets' %}"> Bouquets </a></li>
+                        <li><a class=" dropdown-item" href="{% url 'indoor_plants' %}?type=indoor_plants"> Indoor Plants
+                            </a>
+                        </li>
                     </ul>
                 </li>
 
