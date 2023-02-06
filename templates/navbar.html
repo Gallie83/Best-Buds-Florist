@@ -31,7 +31,11 @@
                 <div class="col-4 mt-2 account-icon">
                     <i class="fa-solid fa-user p-2"></i>
 
-                    <a href="{% url 'view_bag' %}" class="link-dark"><i class="fa-solid fa-cart-shopping"></i></a>
+                    <a href="{% url 'view_bag' %}" class="link-dark m-2"><i class="fa-solid fa-cart-shopping"></i>
+                        <p>
+                            €{{ total }}
+                        </p>
+                    </a>
                 </div>
             </div>
         </div>
