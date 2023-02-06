@@ -1,7 +1,7 @@
 :root {
     --light: #f9f3e6;
-    --middle: #f2ccbb;
-    --baige: #e5c3b1;
+    --baige: #f2ccbb;
+    --middle: #e5c3b1;
 }
 
 html {
@@ -55,10 +55,12 @@ body {
     object-fit: contain;
 }
 
-.details {
-    background-color: var(--middle);
-}
-
+.details,
 .card {
     background-color: var(--middle);
+    /* color: white; */
 }
+
+/* .card {
+    background-color: var(--middle);
+} */
