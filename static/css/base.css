@@ -1,7 +1,10 @@
 :root {
-    --light: #f9f3e6;
-    --baige: #f2ccbb;
-    --middle: #e5c3b1;
+    /* --light: #f9f3e6;
+    --baige: #FFD3B6;
+    --middle: #e5c3b1; */
+    --backround: #FCF8F3;
+    --top: #FFD3B6;
+    --content: #FFD3B6;
 }
 
 html {
@@ -9,12 +12,12 @@ html {
 }
 
 body {
-    background-color: var(--light);
+    background-color: var(--backround);
 
 }
 
 .navbar {
-    background-color: var(--baige);
+    background-color: var(--top);
 }
 
 .account-icon {
@@ -59,7 +62,7 @@ body {
 
 .details,
 .card {
-    background-color: var(--middle);
+    background-color: var(--content);
     /* color: white; */
 }
 
