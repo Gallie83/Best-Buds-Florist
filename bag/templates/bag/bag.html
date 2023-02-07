@@ -15,6 +15,38 @@
 
     {% if bag_items %}
 
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">Product</th>
+                <th scope="col">Price</th>
+                <th scope="col">Quantity</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in bag_items %}
+            <tr>
+                <td class="w-25">
+                    <img class="img-fluid bag-img" src="{{ item.product.image.url }}" alt="Products Image">
+                </td>
+                <td>{{ item.product.name }}</td>
+                <td>{{ item.product.price }}</td>
+                <td>{{ item.quantity }}</td>
+            </tr>
+            {% endfor %}
+            <tr>
+                <td class="float-right"><strong>Cart Total: €{{ total | floatformat:2 }}</strong>
+                    <p>Delivery: €{{ delivery | floatformat:2 }}</p>
+                    <p><strong>Grand Total: €{{ grand_total | floatformat:2 }}</strong></p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    {% else %}
+
+    <p><strong>Your Shopping Cart is empty!</strong></p>
 
 
     {% endif %}
