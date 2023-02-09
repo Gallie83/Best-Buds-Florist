@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block content %}
+
+<!-- Navigation bar -->
+{% include 'navbar.html' %}
+
+<section class="container mt-4">
+
+    <div class="details rounded">
+        <div class="row text-center p-3">
+            <div class="col-md-6 mb-4">
+                <img src="/media/wedding-flowers.jpg" class="img-fluid detail-image" alt="" />
+            </div>
+
+            <div class="col-md-6 mb-4">
+                <h2>Weddings</h2>
+                <hr class="w-50 mx-auto">
+                <p class="mt-3 px-3">Our passion has been to provide couples with the most glorious mix of fresh blooms
+                    and botanicals,
+                    uniquely designed to capture the essence of each and every love story.
+                    <br>
+                    We've been fortunate to work on all kinds of weddings - from the
+                    traditional and rustic to the boho and modern. From stunning bouquets to sophisticated ceremonies,
+                    elegant table settings and dreamy receptions, Celine’s will work with you every step of the way to
+                    make
+                    your dreams come to life.
+                    <br>
+                    Our designers are artists, and would love to help you capture your vision for your big day.
+                    <br>
+                    Please don't hesitate to contact us at
+                </p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

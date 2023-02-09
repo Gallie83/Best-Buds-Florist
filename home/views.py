@@ -16,7 +16,13 @@ def index(request):
     return render(request, 'home/index.html', context)
 
 
-def occasions(request):
-    """ Returns occasions.html """
+def weddings(request):
+    """ Returns weddings.html """
 
-    return render(request, 'home/occasions.html')
+    return render(request, 'home/weddings.html')
+
+
+def funerals(request):
+    """ Returns funerals.html """
+
+    return render(request, 'home/funerals.html')

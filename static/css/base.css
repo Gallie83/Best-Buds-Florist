@@ -1,10 +1,11 @@
 :root {
-    /* --light: #f9f3e6;
-    --baige: #FFD3B6;
-    --middle: #e5c3b1; */
-    --backround: #FCF8F3;
+    --background: #f9f3e6;
     --top: #FFD3B6;
-    --content: #FFD3B6;
+    --content: #e5c3b1;
+    /* --backround: #FBE7C6;
+    --top: #FFAEBC;
+    --content: #FFAEBC;
+ */
 }
 
 html {
@@ -18,6 +19,10 @@ body {
 
 .navbar {
     background-color: var(--top);
+}
+
+.nav-overflow {
+    overflow: hidden;
 }
 
 .account-icon {
