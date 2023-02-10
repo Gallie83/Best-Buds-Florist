@@ -20,8 +20,8 @@
             <tr>
                 <th scope="col"></th>
                 <th scope="col">Product</th>
-                <th scope="col">Price</th>
                 <th scope="col">Quantity</th>
+                <th scope="col">Price</th>
             </tr>
         </thead>
         <tbody>
@@ -31,19 +31,29 @@
                     <img class="img-fluid bag-img" src="{{ item.product.image.url }}" alt="Products Image">
                 </td>
                 <td>{{ item.product.name }}</td>
-                <td>{{ item.product.price }}</td>
-                <td>{{ item.quantity }}</td>
+                <td>
+                    <form class="" action="" method="POST">
+                        {% csrf_token %}
+                        <div class="form-outline me-1 d-inline-block">
+                            <input type="number" name="quantity" value="{{ item.quantity }}" min="1" max="99"
+                                data-item-id="{{ item.item_id }}" class="form-control qty_input"
+                                id="id_qty_{{ item.item_id }}" />
+                        </div>
+                    </form>
+                    <a class="update-link text-info"><small>Update</small></a>
+                    <a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}"
+                        data-size="{{ item.size }}"><small>Remove</small></a>
+                </td>
+                <td>€{{ item.product.price }}</td>
             </tr>
             {% endfor %}
-            <tr>
-                <td class="float-right"><strong>Cart Total: €{{ total | floatformat:2 }}</strong>
-                    <p>Delivery: €{{ delivery | floatformat:2 }}</p>
-                    <p><strong>Grand Total: €{{ grand_total | floatformat:2 }}</strong></p>
-                </td>
-            </tr>
         </tbody>
     </table>
-
+    <div class="float-end mr-5">
+        <strong>Cart Total: €{{ total | floatformat:2 }}</strong>
+        <p>Delivery: €{{ delivery | floatformat:2 }}</p>
+        <p><strong>Grand Total: €{{ grand_total | floatformat:2 }}</strong></p>
+    </div>
     {% else %}
 
     <p><strong>Your Shopping Cart is empty!</strong></p>
@@ -54,4 +64,8 @@
 
 </section>
 
+{% endblock %}
+{% block postloadjs %}
+{{ block.super }}
+{% include 'includes/updatejs.html' %}
 {% endblock %}
