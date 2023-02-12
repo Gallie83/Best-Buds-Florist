@@ -51,6 +51,11 @@
                 </div>
                 <a class="btn border border-dark float-start mt-3" href="{% url 'products' %}"><i
                         class="fa-solid fa-arrow-left"></i> Keep Shopping</a>
+                {% if messages %}
+                {% for message in messages %}
+                {{ message }}
+                {% endfor %}
+                {% endif %}
             </div>
         </div>
     </div>

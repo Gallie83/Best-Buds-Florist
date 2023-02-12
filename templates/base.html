@@ -19,6 +19,9 @@
     {% endblock %}
 
     {% block corejs %}
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+        integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/8f1f7dbbc3.js" crossorigin="anonymous"></script>
     <!-- Popper and Boostrap Javascript -->
@@ -36,20 +39,41 @@
 
 <body>
 
-    {% if messages %}
 
+    {% if messages %}
+    <div class="message-container">
+        {% for message in messages %}
+        {% with message.level as level %}
+        {% if level == 40 %}
+        {% include 'includes/toasts/toast_error.html' %}
+        {% elif level == 30 %}
+        {% include 'includes/toasts/toast_warning.html' %}
+        {% elif level == 25 %}
+        {% include 'includes/toasts/toast_success.html' %}
+        {% else %}
+        {% include 'includes/toasts/toast_info.html' %}
+        {% endif %}
+        {% endwith %}
+        {% endfor %}
+    </div>
     {% endif %}
 
     {% block content %}
     {% endblock %}
 
-    {% block postload js %}
-
+    {% block postloadjs %}
     <script type="text/javascript">
-        $('.toast').toast('show');
-    </script>
+        // Toast pops up
+        $('.toast').show()
 
+        // Close toast on click
+        $(".toast-close").click(function () {
+            $('.toast').hide();
+        })
+
+    </script>
     {% endblock %}
+
 </body>
 
 </html>
