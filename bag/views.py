@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, reverse, redirect, get_object_or_404
 from django.contrib import messages
 from products.models import Product
 
@@ -29,3 +29,22 @@ def add_to_bag(request, item_id):
     request.session['bag'] = bag
 
     return redirect(redirect_url)
+
+
+def update_bag(request, item_id):
+    """Updates items in users bag """
+
+    product = get_object_or_404(Product, pk=item_id)
+    quantity = int(request.POST.get('quantity'))
+    bag = request.session.get('bag', {})
+
+    if quantity > 0:
+        bag[item_id] = quantity
+        messages.success(request, f'Updated {product.name} in cart!')
+    else:
+        bag.pop[item_id]
+        messages.error(request, f'Added {product.name} to cart!')
+
+    request.session['bag'] = bag
+
+    return redirect(reverse('view_bag'))

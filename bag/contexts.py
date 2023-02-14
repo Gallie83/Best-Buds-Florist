@@ -24,12 +24,12 @@ def bag_contents(request):
         if total > settings.FREE_DELIVERY_THRESHOLD:
             delivery = 0
 
-        # grand_total = delivery + total
+        grand_total = delivery + total
 
     context = {
         'bag_items': bag_items,
         'total': total,
-        # 'grand_total': grand_total,
+        'grand_total': grand_total,
         'product_count': product_count,
         'delivery': delivery,
         'bag': bag,

@@ -1,11 +1,10 @@
 :root {
-    --background: #f9f3e6;
+    /* --background: #f9f3e6;
     --top: #FFD3B6;
-    --content: #e5c3b1;
-    /* --backround: #FBE7C6;
-    --top: #FFAEBC;
-    --content: #FFAEBC;
- */
+    --content: #e5c3b1; */
+    --background: #f9f3e6;
+    --content: #e6c3a3;
+    --top: #fedfd7;
 }
 
 html {
@@ -14,15 +13,10 @@ html {
 
 body {
     background-color: var(--backround);
-
 }
 
 .navbar {
     background-color: var(--top);
-}
-
-.nav-overflow {
-    overflow: hidden;
 }
 
 .account-icon {
@@ -69,6 +63,15 @@ body {
 .card {
     background-color: var(--content);
     /* color: white; */
+}
+
+.weddings {
+    background-color: var(--top);
+}
+
+.funerals {
+    background-color: #767676;
+    color: whitesmoke;
 }
 
 .update-link,
