@@ -21,10 +21,10 @@ def bag_contents(request):
             'product': product,
         })
 
-        if total > settings.FREE_DELIVERY_THRESHOLD:
-            delivery = 0
+    if total > settings.FREE_DELIVERY_THRESHOLD:
+        delivery = 0
 
-        grand_total = delivery + total
+    grand_total = delivery + total
 
     context = {
         'bag_items': bag_items,

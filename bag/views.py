@@ -1,4 +1,4 @@
-from django.shortcuts import render, reverse, redirect, get_object_or_404
+from django.shortcuts import render, reverse, redirect, get_object_or_404, HttpResponse
 from django.contrib import messages
 from products.models import Product
 
@@ -27,7 +27,6 @@ def add_to_bag(request, item_id):
         messages.success(request, f'Added {product.name} to cart!')
 
     request.session['bag'] = bag
-
     return redirect(redirect_url)
 
 
@@ -40,11 +39,22 @@ def update_bag(request, item_id):
 
     if quantity > 0:
         bag[item_id] = quantity
-        messages.success(request, f'Updated {product.name} in cart!')
-    else:
-        bag.pop[item_id]
-        messages.error(request, f'Added {product.name} to cart!')
+        messages.success(request, f'Updated {product.name} quantity in cart!')
 
     request.session['bag'] = bag
-
     return redirect(reverse('view_bag'))
+
+
+def remove_from_bag(request, item_id):
+    """Removes items in users bag """
+    try:
+        product = get_object_or_404(Product, pk=item_id)
+        bag = request.session.get('bag', {})
+
+        bag.pop(item_id)
+        messages.success(request, f'Removed {product.name} from your cart!')
+
+        request.session['bag'] = bag
+        return HttpResponse(status=200)
+    except Exception as e:
+        return HttpResponse(status=500)
