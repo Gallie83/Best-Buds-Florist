@@ -16,7 +16,8 @@ body {
 }
 
 .navbar {
-    background-color: var(--top);
+    /* background-color: var(--top); */
+    background-color: var(--content);
 }
 
 .account-icon {

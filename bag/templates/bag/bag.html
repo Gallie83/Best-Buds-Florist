@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load bag_tools %}
 
 
 {% block content %}
@@ -21,7 +22,7 @@
                 <th scope="col"></th>
                 <th scope="col">Product</th>
                 <th scope="col">Quantity</th>
-                <th scope="col">Price</th>
+                <th scope="col">Subtotal</th>
             </tr>
         </thead>
         <tbody>
@@ -44,14 +45,23 @@
                     <a class="remove-item text-danger float-right"
                         id="remove_{{ item.item_id }}"><small>Remove</small></a>
                 </td>
-                <td>€{{ item.product.price }}</td>
+                <td>€{{ item.product.price | calc_subtotal:item.quantity }}</td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
-    <div class="float-end mr-5">
+    <div class="w-50 mx-auto text-center pt-2">
+        <h3>Cart Summary
+            <hr>
+        </h3>
         <strong>Cart Total: €{{ total | floatformat:2 }}</strong>
-        <p>Delivery: €{{ delivery | floatformat:2 }}</p>
+        {% if grand_total > 30 %}
+        <s><p>Delivery: €5.00 </p></s>
+        <p>Delivery: €0.00 </p>
+        {% else %}
+        <p class="text-success">Free Deliveries over €30!"</p>
+        <p>Delivery: €5.00 </p>
+        {% endif %}
         <p><strong>Grand Total: €{{ grand_total | floatformat:2 }}</strong></p>
     </div>
     {% else %}
