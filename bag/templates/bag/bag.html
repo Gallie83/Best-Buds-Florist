@@ -55,12 +55,12 @@
             <hr>
         </h3>
         <strong>Cart Total: €{{ total | floatformat:2 }}</strong>
-        {% if grand_total > 30 %}
+        {% if grand_total < 30 %}
+        <p>Delivery: €5.00 </p>
+        <p class="text-danger">Only spend another €{{ free_delivery_delta }} for free delivery!</p>
+        {% else %}
         <s><p>Delivery: €5.00 </p></s>
         <p>Delivery: €0.00 </p>
-        {% else %}
-        <p class="text-success">Free Deliveries over €30!"</p>
-        <p>Delivery: €5.00 </p>
         {% endif %}
         <p><strong>Grand Total: €{{ grand_total | floatformat:2 }}</strong></p>
     </div>
