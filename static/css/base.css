@@ -3,8 +3,8 @@
     --top: #FFD3B6;
     --content: #e5c3b1; */
     --background: #f9f3e6;
-    --content: #e6c3a3;
-    --top: #fedfd7;
+    --content: #ddc6aa;
+    --top: #8fb996;
 }
 
 html {
@@ -17,7 +17,7 @@ body {
 
 .navbar {
     /* background-color: var(--top); */
-    background-color: var(--content);
+    background-color: var(--top);
 }
 
 .account-icon {
@@ -61,18 +61,18 @@ body {
 
 
 .details,
-.card {
+.card,
+.checkout {
     background-color: var(--content);
-    /* color: white; */
 }
 
 .weddings {
-    background-color: var(--top);
+    background-color: #ffdad8;
 }
 
 .funerals {
-    background-color: #767676;
-    color: whitesmoke;
+    background-color: #c6cbc9;
+    /* color: whitesmoke; */
 }
 
 .update-link,
