@@ -35,7 +35,7 @@ class Order(models.Model):
         """ Calculates grand total for each line item added, with delivery cost """
 
         self.order_total = self.lineitems.aggregate(Sum('lineitem_total'))[
-            'lineitem_total__sum']
+            'lineitem_total__sum'] or 0
         if self.order_total < settings.FREE_DELIVERY_THRESHOLD:
             self.delivery_cost = 5
         else:

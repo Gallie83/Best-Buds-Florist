@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/checkout.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<!-- Navigation bar -->
+{% include 'navbar.html' %}
+
+<section class="container border border-dark rounded mt-4 p-2">
+
+    <div class="text-center">
+        <h2 class="mt-5">Thanks for your purchase!</h2>
+        <hr class="w-50 mx-auto ">
+        <p>A confirmation email has been sent to <strong>{{ order.email }}</strong></p>
+    </div>
+
+    <div class="row m-2">
+
+    </div>
+    </div>
+</section>
+
+{% endblock %}
