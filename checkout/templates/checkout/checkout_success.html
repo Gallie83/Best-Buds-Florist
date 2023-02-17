@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load bag_tools %}
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/checkout.css' %}">
@@ -18,9 +19,48 @@
         <p>A confirmation email has been sent to <strong>{{ order.email }}</strong></p>
     </div>
 
-    <div class="row m-2">
+    <div class="row m-2 pt-2">
+        <div class="col-lg-6 border-end">
+            <div>
+                <h3>Order Info:</h3>
+                <p>Order Number: {{order.order_number }}</p>
+                <p>Order Date: {{order.date }}</p>
+            </div>
 
-    </div>
+
+            <h3>Order Details:</h3>
+            {% for item in order.lineitems.all %}
+            <div class="row">
+                <p class="col text-black ">
+                    {{ item.product.name }} (x{{ item.quantity }})
+                </p>
+                <p class="col mb-0">€{{ item.product.price | calc_subtotal:item.quantity }}</p>
+            </div>
+            {% endfor %}
+            <hr class="w-75 mx-auto">
+            <div class="w-50 small float-lg-end">
+                <p>Products Total: {{ order.order_total }}</p>
+                <p>Delivery: {{ order.delivery_cost }}</p>
+                <hr class="w-50">
+                <p>Order Total: {{ order.grand_total }}</p>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div>
+                <h3>Delivery Info:</h3>
+                <p>Full Name: {{ order.full_name }}</p>
+                <p>Address: {{ order.street_address1 }}, {% if order.street_address2 %} {{ order.street_address2 }}
+                    {% endif %}</p>
+                {% if order.county %}
+                <p>County: {{ order.county }}</p>
+                {% endif %}
+                <p>Country: {{ order.country }}</p>
+                {% if order.postcode %}
+                <p>Postcode: {{ order.postcode }}</p>
+                {% endif %}
+                <p>Contact Number: {{ order.phone_number }}</p>
+            </div>
+        </div>
     </div>
 </section>
 
