@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/account.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<!-- Navigation bar -->
+{% include 'navbar.html' %}
+
+<section class="container border border-dark rounded mt-4 p-2">
+
+    <h2 class="mt-5 text-center">My Account</h2>
+    <hr class="w-50 mx-auto ">
+
+
+</section>
+
+{% endblock %}

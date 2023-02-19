@@ -1,3 +1,8 @@
 from django.shortcuts import render
 
-# Create your views here.
+
+def account(request):
+    """ Displays users account """
+    context = {}
+
+    return render(request, 'accounts/account.html', context)
