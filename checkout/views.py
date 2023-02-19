@@ -9,6 +9,7 @@ from products.models import Product
 from bag.contexts import bag_contents
 
 import stripe
+import json
 
 
 @require_POST
@@ -49,7 +50,11 @@ def checkout(request):
         }
         order_form = OrderForm(form_data)
         if order_form.is_valid():
-            order = order_form.save()
+            order = order_form.save(commit=False)
+            pid = request.POST.get('client_secret').split('_secret')[0]
+            order.stripe_pid = pid
+            order.original_bag = json.dumps(bag)
+            order.save()
 
             # Iterate through all items in bag
             for item_id, quantity in bag.items():
