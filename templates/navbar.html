@@ -28,14 +28,34 @@
                 </div>
 
 
-                <div class="col-4 mt-2 account-icon p-0">
-                    <i class="fa-solid fa-user p-2"></i>
+                <div class="col-4 mt-2 account-icon">
+                    <li class="list-inline-item">
+                        <a class="link-dark m-2" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            <div><i class="fas fa-user"></i></div>
+                            <p>My Account</p>
+                        </a>
+                        <div class="dropdown-menu border-0" aria-labelledby="user-options">
+                            {% if request.user.is_authenticated %}
+                            {% if request.user.is_superuser %}
+                            <a href="{% url 'account_logout' %}" class="dropdown-item">Product Management</a>
+                            {% endif %}
+                            <a href="" class="dropdown-item">My Profile</a>
+                            <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                            {% else %}
+                            <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+                            <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+                            {% endif %}
+                        </div>
+                    </li>
 
-                    <a href="{% url 'view_bag' %}" class="link-dark m-2"><i class="fa-solid fa-cart-shopping"></i>
-                        <p>
-                            €{{ total }}
-                        </p>
-                    </a>
+                    <li class="list-inline-item">
+                        <a href="{% url 'view_bag' %}" class="link-dark m-2"><i class="fa-solid fa-cart-shopping"></i>
+                            <p>
+                                €{{ total }}
+                            </p>
+                        </a>
+                    </li>
                 </div>
             </div>
         </div>
