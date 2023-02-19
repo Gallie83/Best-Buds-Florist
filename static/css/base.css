@@ -20,9 +20,9 @@ body {
     background-color: var(--top);
 }
 
-.account-icon {
+/* .account-icon {
     overflow: hidden;
-}
+} */
 
 .dropdown:hover .dropdown-menu {
     display: block;

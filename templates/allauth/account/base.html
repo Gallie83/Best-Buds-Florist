@@ -1,15 +1,24 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div class="container header-container">
-        <div class="overlay"></div>
-        <div class="row">
-            <div class="col-12 col-md-6">
-                <div class="allauth-form-inner-content">
+
+<!-- Navigation bar -->
+{% include 'navbar.html' %}
+
+<section class="container mt-4">
+
+    <div class="weddings rounded">
+        <div class="row text-center p-3">
+            <div class="col-md-6 mb-4">
+                <img src="/media/flower-heart.jpg" class="img-fluid detail-image" alt="" />
+            </div>
+
+            <div class="col-md-6 mb-4">
+                <div class="allauth-form-inner-content w-50 mx-auto">
                     {% block inner_content %}
                     {% endblock %}
                 </div>
             </div>
         </div>
-    </div>
+</section>
 {% endblock %}
