@@ -68,8 +68,35 @@
     </div>
     {% endif %}
 
-    {% block content %}
-    {% endblock %}
+    <div class="flex-wrapper">
+        {% block content %}
+        {% endblock %}
+
+        <!-- Footer section -->
+        <footer class="top-color">
+            <!-- Social Media Links -->
+            <span>Find us on:</span>
+
+            <a href="" target="_blank" rel="noopener" aria-label="Find us on Facebook (link opens in a new tab)"><i
+                    class="fab fa-facebook"></i>
+            </a>
+
+            <a href="" target="_blank" rel="noopener" aria-label="Find us on Instagram (link opens in a new tab)"><i
+                    class="fab fa-instagram"></i>
+            </a>
+
+            <br>
+            <!-- Contact number and Gym Address -->
+            <span>Contact us: 085 136 4575 </span>
+
+            <br>
+
+            <span>
+                <Address></Address>
+            </span>
+            <br>
+        </footer>
+    </div>
 
     {% block postloadjs %}
     <script type="text/javascript">

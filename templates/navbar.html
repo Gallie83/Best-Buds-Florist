@@ -28,32 +28,11 @@
                 </div>
 
 
-                <div class="col-4 account-icon mt-3">
-                    <li class="list-inline-item dropdown">
-                        <a class="link-dark m-2" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false">
-                            <div><i class="fas fa-user"></i></div>
-                            <p class="p-0">My Account</p>
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="user-options">
-                            {% if request.user.is_authenticated %}
-                            {% if request.user.is_superuser %}
-                            <a href="{% url 'account_logout' %}" class="dropdown-item">Product Management</a>
-                            {% endif %}
-                            <a href="" class="dropdown-item">My Profile</a>
-                            <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
-                            {% else %}
-                            <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
-                            <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
-                            {% endif %}
-                        </div>
-                    </li>
+                <div class="col-4 mt-3 align-items-center">
 
                     <li class="list-inline-item">
                         <a href="{% url 'view_bag' %}" class="link-dark m-2"><i class="fa-solid fa-cart-shopping"></i>
-                            <p>
-                                €{{ total }}
-                            </p>
+                            €{{ total }}
                         </a>
                     </li>
                 </div>
@@ -64,7 +43,7 @@
             <ul class="navbar-nav p-0">
                 <!-- Link to home page -->
                 <li class="nav-item col">
-                    <a class="nav-link" href="/">Home</a>
+                    <a class="nav-link" href="{% url 'home' %}">Home</a>
                 </li>
 
                 <li class="nav-item col dropdown">
@@ -86,6 +65,23 @@
 
                 <li class="nav-item col">
                     <a class="nav-link" href="{% url 'funerals' %}">Funerals</a>
+                </li>
+
+                <li class="nav-item col dropdown">
+                    <a class="nav-link dropbtn" href="" data-bs-hover="dropdown">My Account
+                    </a>
+                    <ul class="dropdown-menu">
+                        {% if request.user.is_authenticated %}
+                        {% if request.user.is_superuser %}
+                        <li><a href="{% url 'account_logout' %}" class="dropdown-item">Product Management</a></li>
+                        {% endif %}
+                        <li><a href="" class="dropdown-item">My Profile</a></li>
+                        <li><a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a></li>
+                        {% else %}
+                        <li><a href="{% url 'account_signup' %}" class="dropdown-item">Register</a></li>
+                        <li><a href="{% url 'account_login' %}" class="dropdown-item">Login</a></li>
+                        {% endif %}
+                    </ul>
                 </li>
 
 

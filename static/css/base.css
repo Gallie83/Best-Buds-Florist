@@ -15,14 +15,19 @@ body {
     background-color: var(--backround);
 }
 
+/* Ensures content and footer take up 100% of page height */
+.flex-wrapper {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 .navbar {
     /* background-color: var(--top); */
     background-color: var(--top);
 }
 
-/* .account-icon {
-    overflow: hidden;
-} */
 
 .dropdown:hover .dropdown-menu {
     display: block;
@@ -63,6 +68,18 @@ body {
     bottom: 50%;
     text-align: center;
     align-items: center;
+}
+
+footer {
+    clear: both;
+    z-index: 1;
+    width: 100%;
+    text-align: center;
+    color: black;
+    padding: 1em;
+    margin-top: 2em;
+    bottom: 0;
+    position: relative;
 }
 
 .top-color {
