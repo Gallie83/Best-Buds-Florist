@@ -36,7 +36,33 @@ body {
 }
 
 .carousel-item {
-    object-fit: cover;
+    object-fit: contain;
+    bottom: 0%;
+}
+
+.carousel-title {
+    font-family: 'Dancing Script', cursive;
+}
+
+/* Caption text */
+.slider-text {
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    left: 40%;
+    bottom: 50%;
+    text-align: center;
+    align-items: center;
+}
+
+.slider-text-indoor-plant {
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    left: 20%;
+    bottom: 50%;
+    text-align: center;
+    align-items: center;
 }
 
 .card-image,

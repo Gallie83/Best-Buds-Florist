@@ -29,13 +29,13 @@
 
 
                 <div class="col-4 account-icon mt-3">
-                    <li class="list-inline-item">
+                    <li class="list-inline-item dropdown">
                         <a class="link-dark m-2" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false">
                             <div><i class="fas fa-user"></i></div>
-                            <p>My Account</p>
+                            <p class="p-0">My Account</p>
                         </a>
-                        <div class="dropdown-menu border-0" aria-labelledby="user-options">
+                        <div class="dropdown-menu" aria-labelledby="user-options">
                             {% if request.user.is_authenticated %}
                             {% if request.user.is_superuser %}
                             <a href="{% url 'account_logout' %}" class="dropdown-item">Product Management</a>
