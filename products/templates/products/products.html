@@ -33,7 +33,7 @@
             {% for product in products %}
             <div class="col-lg-3 col-md-6 mb-4">
                 <a href="{% url 'product_details' product.id %}">
-                    <div class="card">
+                    <div class="content-color rounded py-2">
                         <div class="bg-image hover-zoom ripple ripple-surface ripple-surface-light"
                             data-mdb-ripple-color="light">
                             <img src="{{ product.image.url }}" class="img-fluid card-image rounded m-2" />

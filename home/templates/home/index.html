@@ -52,35 +52,83 @@
     </button>
 </div>
 
+<hr class="w-50 mx-auto my-3">
+
 <!-- Featured products -->
 <section class="container">
-    <h2>Featured Products</h2>
-    <br>
-    <div class="text-center">
+
+    <div class="p-3 rounded top-color">
+        <h2>Browse our Collections!</h2>
         <div class="row">
 
-            {% for product in products %}
-            <div class="col-lg-3 col-md-6 mb-4">
-                <a href="{% url 'product_details' product.id %}">
-                    <div class="card">
-                        <div class="bg-image hover-zoom ripple ripple-surface ripple-surface-light mt-1"
+            <div class="col-lg-4 col-md-6 mb-4">
+                <a href="{% url 'products' %}?type=SP" class="text-reset text-decoration-none">
+                    <div class="content-color border border-dark rounded">
+                        <div class="bg-image hover-zoom ripple ripple-surface ripple-surface-light"
                             data-mdb-ripple-color="light">
-                            <img src="{{ product.image.url }}"
-                                class="img-fluid card-image rounded m-2 border border-dark" />
-                            <a href="#!">
-                            </a>
+                            <img src="/media/flower.jpg" class="img-fluid products-image" />
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title mb-2">{{ product.name }}</h5>
-                            <p>{{ product.get_type_display }}</p>
-
-                            <h6 class="mb-3 price">€{{ product.price }}</h6>
+                            <h2 class="card-title m-2">Specials/Accessories</h2>
                         </div>
                     </div>
                 </a>
             </div>
-            {% endfor %}
+            <div class="col-lg-4 col-md-6 mb-4">
+                <a href="{% url 'products' %}?type=BQ" class="text-reset text-decoration-none">
+                    <div class="content-color border border-dark rounded">
+                        <div class="bg-image hover-zoom ripple ripple-surface ripple-surface-light"
+                            data-mdb-ripple-color="light">
+                            <img src="/media/bouquet.jpg" class="img-fluid products-image" />
+
+                        </div>
+                        <div class="card-body">
+                            <h2 class="card-title m-2">Bouquets</h2>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <a href="{% url 'products' %}?type=IP" class="text-reset text-decoration-none">
+                    <div class="content-color border border-dark rounded">
+                        <div class="bg-image hover-zoom ripple ripple-surface ripple-surface-light"
+                            data-mdb-ripple-color="light">
+                            <img src="/media/indoor-plant.jpg" class="img-fluid products-image" />
+                        </div>
+                        <div class="card-body">
+                            <h2 class="card-title m-2">Indoor Plants</h2>
+                        </div>
+                    </div>
+                </a>
+            </div>
         </div>
     </div>
+
+    <hr class="w-50 mx-auto my-3">
+
+    <div class="p-3 rounded lighter-color">
+        <div class="row">
+            <div class="col">
+                <img src="/media/about-us-flowers.jpg" alt="Two people holding a bouquet of flowers"
+                    class="img-fluid detail-image">
+            </div>
+            <div class="col text-center my-3">
+                <h2>About Us</h2>
+                <hr class="w-50 mx-auto">
+                <p class="w-75 mx-auto pt-3">Here at Best Buds, we love plants!
+                    <br>
+                    From finding that perfect bouquet that tells that
+                    special someone how
+                    you feel, to getting that new indoor plant to brighten up your home interior.
+                    We are committed to offering only the finest floral arrangements and gifts, backed by service that
+                    is friendly and prompt. Our fantastic, comprehensive online flower service will help you in your
+                    busy life
+                    and bridge geographical distance, making it easy
+                    for you to make that connection with the special people
+                    in your life with the gift of bespoke flowers.
+                </p>
+            </div>
+        </div>
+
 </section>
 {% endblock %}

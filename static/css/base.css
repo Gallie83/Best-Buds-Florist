@@ -65,6 +65,16 @@ body {
     align-items: center;
 }
 
+.top-color {
+    background-color: var(--top);
+}
+
+.content-color {
+    /* background-color: var(--top); */
+    background-color: var(--content);
+}
+
+
 .card-image,
 .bag-img {
     max-width: 100%;
@@ -85,14 +95,7 @@ body {
     object-fit: contain;
 }
 
-
-.details,
-.card,
-.checkout {
-    background-color: var(--content);
-}
-
-.weddings {
+.lighter-color {
     background-color: #ffdad8;
 }
 
