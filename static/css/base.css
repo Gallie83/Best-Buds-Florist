@@ -5,6 +5,7 @@
     --background: #f9f3e6;
     --content: #ddc6aa;
     --top: #8fb996;
+    --light: #ffdad8;
 }
 
 html {
@@ -55,7 +56,7 @@ body {
     padding: 8px 12px;
     position: absolute;
     left: 40%;
-    bottom: 50%;
+    top: 15%;
     text-align: center;
     align-items: center;
 }
@@ -64,8 +65,7 @@ body {
     font-size: 15px;
     padding: 8px 12px;
     position: absolute;
-    left: 20%;
-    bottom: 50%;
+    top: 10%;
     text-align: center;
     align-items: center;
 }
@@ -113,12 +113,11 @@ footer {
 }
 
 .lighter-color {
-    background-color: #ffdad8;
+    background-color: var(--light);
 }
 
 .funerals {
     background-color: #c6cbc9;
-    /* color: whitesmoke; */
 }
 
 .update-link,
@@ -143,6 +142,16 @@ footer {
     height: 2px;
 }
 
-/* .card {
-    background-color: var(--middle);
-} */
+
+/* Media Queries */
+
+@media screen and (max-width:880px) {
+
+    #carouselExampleIndicators {
+        display: none;
+    }
+
+    .products-image {
+        height: 10rem;
+    }
+}

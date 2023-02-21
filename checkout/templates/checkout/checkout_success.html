@@ -20,7 +20,7 @@
     </div>
 
     <div class="row m-2 pt-2">
-        <div class="col-lg-6 border-end">
+        <div class="col-lg-6 border-lg-end">
             <div>
                 <h3>Order Info:</h3>
                 <p>Order Number: {{order.order_number }}</p>
@@ -61,6 +61,8 @@
                 <p>Contact Number: {{ order.phone_number }}</p>
             </div>
         </div>
+        <a href="{% url 'products' %}" class="btn btn-success mt-1"><i class="fa-solid fa-arrow-left"></i> Back to
+            Shop!</a>
     </div>
 </section>
 

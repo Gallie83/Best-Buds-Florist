@@ -5,7 +5,6 @@
 {% block head_title %}{% trans "Signup" %}{% endblock %}
 
 {% block inner_content %}
-<hr>
 <h2 class="logo-font mb-4">{% trans "Sign Up" %}</h2>
 <hr>
 
@@ -20,7 +19,7 @@
     {% endif %}
     <a class="btn btn-sm btn-outline-dark" href="{% url 'account_login' %}">Back to Login</a>
   </div>
-  <button type="submit">{% trans "Sign Up" %}</button>
+  <button type="submit" class="btn btn-sm btn-dark rounded">{% trans "Sign Up" %}</button>
 </form>
 
 {% endblock %}
