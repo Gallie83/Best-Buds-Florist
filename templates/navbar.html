@@ -69,7 +69,7 @@
 
                 <!-- Account dropdown menu -->
                 <li class="nav-item col dropdown">
-                    <a class="nav-link dropbtn" href="" data-bs-hover="dropdown">My Account
+                    <a class="nav-link dropbtn" href="{% url 'account' %}" data-bs-hover="dropdown">My Account
                     </a>
                     <ul class="dropdown-menu">
                         {% if request.user.is_authenticated %}
