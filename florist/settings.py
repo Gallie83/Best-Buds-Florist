@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-dfm_yb0$y@r5x0i@_kf7#z!z+*k%b$mta&-a_@7%5z$$2+hx9y
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['best-buds.herokuapp.com', 'localhost']
 
 
 # Application definition
@@ -125,16 +125,17 @@ WSGI_APPLICATION = 'florist.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+if 'DATABASE_URL' in os.environ:
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
     }
-}
-
-# DATABASES = {
-#     'default': dj_database_url.parse('postgres://ueqginhp:XaVaKxVEE59sbyv5ndhHGajrTfR35X3z@trumpet.db.elephantsql.com/ueqginhp')
-# }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
 
 
 # Password validation
