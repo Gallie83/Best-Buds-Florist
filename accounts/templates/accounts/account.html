@@ -13,7 +13,23 @@
 <section class="container border border-dark rounded mt-4 p-2">
 
     <h2 class="mt-5 text-center">My Account</h2>
-    <hr class="w-50 mx-auto ">
+    <hr class="w-50 mx-auto">
+
+    <div class="row">
+        <div class="col-12 col-lg-6">
+            <p>Delivery Information</p>
+            <form action="{% url 'account' %}" method="POST" id="profile-update-form">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <button class="btn btn-outline-dark float-right">Update Information</button>
+            </form>
+        </div>
+        <div class="col-12 col-lg-6">
+            <p>Delivery History</p>
+            {{ orders }}
+        </div>
+    </div>
+
     <h3>{{ account }}</h3>
 
 
