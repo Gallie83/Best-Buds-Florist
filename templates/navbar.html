@@ -23,13 +23,14 @@
                 <!-- Brand Logo -->
                 <div class="col-4">
                     <a href="{% url 'home' %}">
-                        <img src="/media/best-buds-logo.png" class="rounded-circle border border-dark" height="100">
+                        <!-- <img src="/media/best-buds-logo.png" class="rounded-circle border border-dark" height="100"> -->
+                        <img src="{% static 'best-buds-logo.png' %}" class="rounded-circle border border-dark"
+                            height="100">
                     </a>
                 </div>
 
-
+                <!-- Cart icon with current total -->
                 <div class="col-4 mt-3 align-items-center">
-
                     <li class="list-inline-item">
                         <a href="{% url 'view_bag' %}" class="link-dark m-2"><i class="fa-solid fa-cart-shopping"></i>
                             €{{ total }}
@@ -46,6 +47,7 @@
                     <a class="nav-link" href="{% url 'home' %}">Home</a>
                 </li>
 
+                <!-- Products type dropdown menu -->
                 <li class="nav-item col dropdown">
                     <a class="nav-link dropbtn" href="{% url 'collections' %}" data-bs-hover="dropdown"> Collections
                     </a>
@@ -67,6 +69,7 @@
                     <a class="nav-link" href="{% url 'funerals' %}">Funerals</a>
                 </li>
 
+                <!-- Account dropdown menu -->
                 <li class="nav-item col dropdown">
                     <a class="nav-link dropbtn" href="" data-bs-hover="dropdown">My Account
                     </a>
