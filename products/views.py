@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.db.models.functions import Lower
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from .models import Product
 from .forms import ProductForm
@@ -76,14 +77,20 @@ def product_details(request, product_id):
     return render(request, 'products/product_details.html', context)
 
 
+@login_required
 def add_product(request):
     """ Add a product to the store """
+    if not request.user.is_superuser:
+        messages.error(
+            request, 'Sorry! Only authorised users have access to this.')
+        return redirect(reverse('home'))
+
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            product = form.save()
             messages.success(request, 'Product Added!')
-            return redirect(reverse('add_product'))
+            return redirect(reverse('product_details', args=[product.id]))
         else:
             messages.error(
                 request, 'Failed to add product! Ensure the form is valid')
@@ -97,8 +104,14 @@ def add_product(request):
     return render(request, 'products/add_product.html', context)
 
 
+@login_required
 def edit_product(request, product_id):
     """ Edit a product in the store """
+
+    if not request.user.is_superuser:
+        messages.error(
+            request, 'Sorry! Only authorised users have access to this.')
+        return redirect(reverse('home'))
 
     product = get_object_or_404(Product, pk=product_id)
     if request.method == 'POST':
@@ -120,3 +133,20 @@ def edit_product(request, product_id):
     }
 
     return render(request, 'products/edit_product.html', context)
+
+
+@login_required
+def delete_product(request, product_id):
+    """ Deletes a product in the store """
+
+    if not request.user.is_superuser:
+        messages.error(
+            request, 'Sorry! Only authorised users have access to this.')
+        return redirect(reverse('home'))
+
+    product = get_object_or_404(Product, pk=product_id)
+
+    product.delete()
+    messages.success(request, f'Product deleted!')
+
+    return redirect(reverse('products'))

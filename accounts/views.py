@@ -3,9 +3,12 @@ from django.contrib import messages
 from .models import UserProfile
 from .forms import UserProfileForm
 
+from django.contrib.auth.decorators import login_required
+
 from checkout.models import Order
 
 
+@login_required
 def account(request):
     """ Displays users account """
 
@@ -20,7 +23,7 @@ def account(request):
             messages.error(
                 request, 'Failed to update profile! Ensure the form is valid')
     else:
-        form = UserProfileForm(insance=account)
+        form = UserProfileForm(instance=account)
 
     orders = account.orders.all()
 

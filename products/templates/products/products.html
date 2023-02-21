@@ -56,6 +56,14 @@
                             <p>{{ product.get_type_display }}</p>
 
                             <h6 class="mb-3 price">€{{ product.price }}</h6>
+                            {% if request.user.is_superuser %}
+                            <div class="row">
+                                <a href="{% url 'edit_product' product.id %}"
+                                    class="col-6 text-success"><small>Edit</small></a>
+                                <a href="{% url 'delete_product' product.id %}" class="col-6 text-danger float-right"
+                                    id=""><small>Delete</small></a>
+                            </div>
+                            {% endif %}
                         </div>
                     </div>
                 </a>
