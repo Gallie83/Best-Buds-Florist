@@ -61,8 +61,13 @@
                 <p>Contact Number: {{ order.phone_number }}</p>
             </div>
         </div>
+        {% if from_account %}
+        <a href="{% url 'account' %}" class="btn btn-success mt-1"><i class="fa-solid fa-arrow-left"></i> Back to My
+            Account</a>
+        {% else %}
         <a href="{% url 'products' %}" class="btn btn-success mt-1"><i class="fa-solid fa-arrow-left"></i> Back to
             Shop!</a>
+        {% endif %}
     </div>
 </section>
 
