@@ -37,7 +37,7 @@
                 <p class="col mb-0">€{{ item.product.price | calc_subtotal:item.quantity }}</p>
             </div>
             {% endfor %}
-            <hr class="w-75 mx-auto">
+            <hr class="w-75">
             <div class="w-50 small float-lg-end">
                 <p>Products Total: {{ order.order_total }}</p>
                 <p>Delivery: {{ order.delivery_cost }}</p>

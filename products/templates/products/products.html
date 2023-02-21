@@ -24,6 +24,16 @@
                             to
                             Low) </a></li>
                     </li>
+                    <li><a class="dropdown-item" href="{% url 'products' %}?sort=name&direction=asc"> Title (A-Z) </a>
+                    </li>
+                    <li><a class="dropdown-item" href="{% url 'products' %}?sort=name&direction=desc"> Title (Z-A) </a>
+                    </li>
+                    <li><a class="dropdown-item" href="{% url 'products' %}?type=SP"> Type(Specials/Accessories) </a>
+                    </li>
+                    <li><a class="dropdown-item" href="{% url 'products' %}?type=BQ"> Type(Bouquets) </a></li>
+                    <li><a class=" dropdown-item" href="{% url 'products' %}?type=IP"> Type(Indoor Plants)
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>

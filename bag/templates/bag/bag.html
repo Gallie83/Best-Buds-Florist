@@ -10,11 +10,12 @@
 
 <section class="container mt-4">
 
+
+    {% if bag_items %}
+
     <h2>Shopping Cart
         <hr>
     </h2>
-
-    {% if bag_items %}
 
     <table class="table">
         <thead>
@@ -68,7 +69,9 @@
     </div>
     {% else %}
     <div class="text-center">
-        <p><strong>Your Shopping Cart is empty!</strong></p>
+        <h2><strong>Your Shopping Cart is empty!</strong></h2>
+        <hr>
+
 
         <p>You can fill it up <a class="btn btn-sm btn-success" href="{% url 'products' %}">here!</a> </p>
     </div>
