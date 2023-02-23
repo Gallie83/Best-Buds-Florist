@@ -28,7 +28,6 @@ SECRET_KEY = 'django-insecure-dfm_yb0$y@r5x0i@_kf7#z!z+*k%b$mta&-a_@7%5z$$2+hx9y
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
 # SECRET_KEY = os.environ.get('SECRET_KEY', '')
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = 'DEVELOPMENT' in os.environ
@@ -94,6 +93,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'bag.contexts.bag_contents',
+                'florist.context_processors.media',
             ],
             'builtins': [
                 'crispy_forms.templatetags.crispy_forms_tags',
