@@ -66,9 +66,12 @@ def products(request):
 
 
 def product_details(request, product_id):
-    """ Shows individual product details """
+    """ Shows individual product details and allows user to add review """
 
     product = get_object_or_404(Product, pk=product_id)
+
+    reviews = ReviewRating.objects.filter(product__id=product_id)
+
     product_review_form = ReviewForm(request.POST)
 
     if request.method == 'POST':
@@ -87,6 +90,7 @@ def product_details(request, product_id):
     context = {
         'product': product,
         'product_review_form': product_review_form,
+        'reviews': reviews,
     }
 
     return render(request, 'products/product_details.html', context)
