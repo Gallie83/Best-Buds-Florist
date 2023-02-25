@@ -125,6 +125,10 @@
         <small>{{ customer_review.rating }} stars</small>
         <p>
             {{ customer_review.review }}
+            {% if user.name == review.user_id %}
+            <a href="{% url 'delete_review' customer_review.id %}" class="btn btn-sm btn-danger float-end">Delete
+                Review</a>
+            {% endif %}
         </p>
     </div>
     {% endfor %}

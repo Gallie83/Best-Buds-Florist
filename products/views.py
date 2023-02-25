@@ -96,21 +96,15 @@ def product_details(request, product_id):
     return render(request, 'products/product_details.html', context)
 
 
-def submit_review(request, product_id):
-    """User can review items"""
+@login_required
+def delete_review(request, review_id):
+    """ User can delete their view """
+    review = get_object_or_404(ReviewRating, pk=review_id)
+    product_id = review.product_id
+    review.delete()
 
-    if request.method == 'POST':
-        product_review_form = ReviewForm(request.POST)
-        if product_review_form.is_valid():
-            data = ReviewRating()
-            data.title = product_review_form.cleaned_data['title']
-            data.rating = product_review_form.cleaned_data['rating']
-            data.review = product_review_form.cleaned_data['review']
-            data.product_id = product_id
-            data.user_id = request.user.id
-            data.save()
-            messages.success(
-                request, 'Thank you! Your review has been submitted.')
+    messages.success(request, 'Your review has been deleted.')
+    return redirect(product_details, product_id)
 
 
 @login_required
