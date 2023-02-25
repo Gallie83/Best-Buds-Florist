@@ -1,7 +1,4 @@
 :root {
-    /* --background: #f9f3e6;
-    --top: #FFD3B6;
-    --content: #e5c3b1; */
     --background: #f9f3e6;
     --content: #ddc6aa;
     --top: #8fb996;
@@ -14,6 +11,19 @@ html {
 
 body {
     background-color: var(--backround);
+}
+
+.top-color {
+    background-color: var(--top);
+}
+
+.content-color {
+    /* background-color: var(--top); */
+    background-color: var(--content);
+}
+
+.lighter-color {
+    background-color: var(--light);
 }
 
 /* Ensures content and footer take up 100% of page height */
@@ -29,12 +39,12 @@ body {
     background-color: var(--top);
 }
 
-
 .dropdown:hover .dropdown-menu {
     display: block;
     margin-top: 0;
 }
 
+/* Carousel Styling */
 #carouselExampleIndicators {
     max-height: 30rem;
     overflow: hidden;
@@ -82,16 +92,7 @@ footer {
     position: relative;
 }
 
-.top-color {
-    background-color: var(--top);
-}
-
-.content-color {
-    /* background-color: var(--top); */
-    background-color: var(--content);
-}
-
-
+/* Image Styling */
 .card-image,
 .bag-img {
     max-width: 100%;
@@ -112,13 +113,11 @@ footer {
     object-fit: contain;
 }
 
-.lighter-color {
-    background-color: var(--light);
-}
-
+/* Background colour for funeral page */
 .funerals {
     background-color: #c6cbc9;
 }
+
 
 .update-link,
 .remove-item {
@@ -232,6 +231,11 @@ label:hover~input:checked~label {
     body {
         padding-top: 2.5rem;
     }
+
+    /* Prevents sort button being hidden by navbar */
+    .sort-by {
+        margin-top: 2rem;
+    }
 }
 
 @media screen and (min-width:993px) {
@@ -243,7 +247,6 @@ label:hover~input:checked~label {
 
 @media screen and (max-width:880px) {
 
-
     #carouselExampleIndicators {
         display: none;
     }
@@ -254,7 +257,6 @@ label:hover~input:checked~label {
 }
 
 @media screen and (min-width:880px) {
-
     .home-details {
         display: none;
     }
