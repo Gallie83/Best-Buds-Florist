@@ -3,8 +3,8 @@ from django.db.models.functions import Lower
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
-from .models import Product
-from .forms import ProductForm
+from .models import Product, ReviewRating
+from .forms import ProductForm, ReviewForm
 
 
 def collections(request):
@@ -69,12 +69,44 @@ def product_details(request, product_id):
     """ Shows individual product details """
 
     product = get_object_or_404(Product, pk=product_id)
+    product_review_form = ReviewForm(request.POST)
+
+    if request.method == 'POST':
+        if product_review_form.is_valid():
+            data = ReviewRating()
+            data.title = product_review_form.cleaned_data['title']
+            data.rating = product_review_form.cleaned_data['rating']
+            data.review = product_review_form.cleaned_data['review']
+            data.product_id = product_id
+            data.user_id = request.user.id
+            data.save()
+            messages.success(
+                request, 'Thank you! Your review has been submitted.')
+            return redirect(reverse('product_details', args=[product.id]))
 
     context = {
         'product': product,
+        'product_review_form': product_review_form,
     }
 
     return render(request, 'products/product_details.html', context)
+
+
+def submit_review(request, product_id):
+    """User can review items"""
+
+    if request.method == 'POST':
+        product_review_form = ReviewForm(request.POST)
+        if product_review_form.is_valid():
+            data = ReviewRating()
+            data.title = product_review_form.cleaned_data['title']
+            data.rating = product_review_form.cleaned_data['rating']
+            data.review = product_review_form.cleaned_data['review']
+            data.product_id = product_id
+            data.user_id = request.user.id
+            data.save()
+            messages.success(
+                request, 'Thank you! Your review has been submitted.')
 
 
 @login_required
