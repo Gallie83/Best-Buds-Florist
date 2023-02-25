@@ -1,6 +1,6 @@
 {% load static %}
 
-
+<!-- Large screen navbar -->
 <nav id="large-screen-navbar" class="navbar navbar-expand-lg text-center border">
     <div class="w-100">
         <div class="text-center">
@@ -85,8 +85,6 @@
                         {% endif %}
                     </ul>
                 </li>
-
-
             </ul>
         </div>
     </div>
@@ -94,22 +92,35 @@
 
 </nav>
 
-<nav id="small-screen-navbar" class="navbar navbar-expand-lg fixed-top">
+<!-- Small screen navbar -->
+<nav id="small-screen-navbar" class="navbar navbar-expand-lg fixed-top mb-5">
     <div class="container-fluid">
-        <a class="navbar-brand" href="">Best Buds</a>
+        <a class="navbar-brand dancing-font" href="{% url 'home' %}">Best Buds</a>
+        <!-- Cart icon with current total -->
+        <div>
+            <li class="list-inline-item">
+                <a href="{% url 'view_bag' %}" class="link-dark m-2"><i class="fa-solid fa-cart-shopping"></i>
+                    €{{ total }}
+                </a>
+            </li>
+        </div>
+        <!-- Dropdown button -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <form class="d-flex mt-1" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <!-- Search bar -->
+                <form method="GET" action="{% url 'products' %}" class="d-flex mt-1" role="search">
+                    <input class="form-control me-2" name="q" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-sm btn-outline-success" type="submit">Search</button>
                 </form>
+                <!-- Home link -->
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
                 </li>
+                <!-- Products dropdown -->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
@@ -122,12 +133,15 @@
                         <li><a class="dropdown-item" href="#">Indoor Plants</a></li>
                     </ul>
                 </li>
+                <!-- Weddings link -->
                 <li class="nav-item">
                     <a class="nav-link" href="#">Weddings</a>
                 </li>
+                <!-- Funeral link -->
                 <li class="nav-item">
                     <a class="nav-link" href="#">Funerals</a>
                 </li>
+                <!-- Accounts dropdown -->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" data-bs-hover="dropdown">Accounts
                     </a>
@@ -145,14 +159,6 @@
                     </ul>
                 </li>
             </ul>
-        </div>
-        <!-- Cart icon with current total -->
-        <div>
-            <li class="list-inline-item">
-                <a href="{% url 'view_bag' %}" class="link-dark m-2"><i class="fa-solid fa-cart-shopping"></i>
-                    €{{ total }}
-                </a>
-            </li>
         </div>
     </div>
 </nav>
