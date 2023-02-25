@@ -38,8 +38,9 @@ def update_bag(request, item_id):
     bag = request.session.get('bag', {})
 
     if quantity > 0:
-        bag[item_id] = quantity
-        messages.success(request, f'Updated {product.name} quantity in cart!')
+        bag[item_id] = int(quantity)
+        messages.success(
+            request, f'Updated {product.name} quantity in cart!')
 
     request.session['bag'] = bag
     return redirect(reverse('view_bag'))
