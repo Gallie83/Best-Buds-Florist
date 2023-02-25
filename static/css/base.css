@@ -222,6 +222,18 @@ label:hover~input:checked~label {
 
 /* Media Queries */
 
+@media screen and (max-width:992px) {
+    #large-screen-navbar {
+        display: none;
+    }
+}
+
+@media screen and (min-width:992px) {
+    #small-screen-navbar {
+        display: none;
+    }
+}
+
 @media screen and (max-width:880px) {
 
     #carouselExampleIndicators {
