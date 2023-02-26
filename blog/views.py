@@ -3,6 +3,7 @@ from .models import BlogPost
 from .forms import PostForm, CommentForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.utils.text import slugify
 
 
 def blog_posts(request):
@@ -56,9 +57,7 @@ def add_post(request):
 
     if request.method == 'POST':
         form = PostForm(request.POST)
-
         if form.is_valid():
-
             post = form.save()
             messages.success(request, 'Post Added!')
             return redirect(reverse('blog_posts'))
