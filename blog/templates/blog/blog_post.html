@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block content %}
+
+<!-- Navigation bar -->
+{% include 'navbar.html' %}
+
+<!-- Blog post -->
+<section class="container mt-4">
+
+    <div class="w-50 p-3 m-1 mx-auto border border-dark lighter-color rounded">
+        <h1>{{ post.title }}</h1>
+        <small>-{{ post.date_created }}</small>
+        <br>
+        <p><strong>{{ post.intro }}</strong></p>
+        <p>{{ post.body }}</p>
+    </div>
+
+</section>
+
+<!-- Display of comments -->
+<section class="container mt-4">
+    <h2 class="text-center">Comments</h2>
+    <hr class="w-50 mx-auto">
+    {% if reviews %}
+    {% for customer_review in reviews %}
+    <div class="w-50 p-3 m-1 mx-auto border border-dark lighter-color rounded">
+        <strong>{{ customer_review.title }}</strong>
+        <small>-{{ customer_review.user }}</small>
+        <br>
+        <small>{{ customer_review.rating }} stars</small>
+        <p>
+            {{ customer_review.review }}
+            {% if user.name == review.user_id %}
+            <a href="{% url 'delete_review' customer_review.id %}" class="btn btn-sm btn-danger float-end">Delete
+                Review</a>
+            {% endif %}
+        </p>
+    </div>
+    {% endfor %}
+    {% else %}
+    <div class="text-center">
+
+        <strong>No reviews yet!</strong>
+        <hr class="w-50 mx-auto">
+    </div>
+    {% endif %}
+</section>
+
+{% endblock %}

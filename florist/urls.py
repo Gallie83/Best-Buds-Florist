@@ -26,9 +26,9 @@ urlpatterns = [
     path('bag/', include('bag.urls')),
     path('checkout/', include('checkout.urls')),
     path('account/', include('accounts.urls')),
+    path('blog/', include('blog.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 # 404 and 500 errors page
 handler404 = "helpers.views.handle_not_found"
 handler500 = "helpers.views.handle_server_error"
-

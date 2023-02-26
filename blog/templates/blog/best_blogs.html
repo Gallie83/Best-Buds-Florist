@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block content %}
+
+<!-- Navigation bar -->
+{% include 'navbar.html' %}
+
+
+<!-- Display of posts -->
+
+<section class="container mt-4">
+    <h2 class="text-center">Posts</h2>
+    <hr class="w-50 mx-auto">
+    {% if posts %}
+    {% for post in reviews %}
+    <div class="w-50 p-3 m-1 mx-auto border border-dark lighter-color rounded">
+        <strong>{{ post.title }}</strong>
+        <small>-{{ post.date_created }}</small>
+        <br>
+        <p>
+            {{ post.intro }}
+            {% if user.name == review.user_id %}
+            <a href="{% url 'delete_review' customer_review.id %}" class="btn btn-sm btn-danger float-end">Delete
+                Review</a>
+            {% endif %}
+        </p>
+    </div>
+    {% endfor %}
+    {% else %}
+    <div class="text-center">
+
+        <strong>No posts yet!</strong>
+        <hr class="w-50 mx-auto">
+    </div>
+    {% endif %}
+</section>
+
+{% endblock %}
