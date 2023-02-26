@@ -7,6 +7,7 @@
 <!-- Navigation bar -->
 {% include 'navbar.html' %}
 
+<!-- Link for admin to add blog posts -->
 {% if request.user.is_superuser %}
 <div class="w-50 mx-auto">
     <a href="{% url 'add_post' %}" class="sort-by float-end btn btn-success" type="button">
@@ -28,13 +29,14 @@
         <p>
             {{ post.intro }}
         </p>
+        <!-- Link to go to posts page -->
         <a href="{% url 'post_details' post.slug %}" class="btn btn-sm btn-success float-end">Read post</a>
     </div>
     <br>
     {% endfor %}
     {% else %}
+    <!-- Message if no posts yet -->
     <div class="text-center">
-
         <strong>No posts yet!</strong>
         <hr class="w-50 mx-auto">
     </div>

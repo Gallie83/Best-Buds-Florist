@@ -16,6 +16,7 @@
         <br>
         <p><strong>{{ post.intro }}</strong></p>
         <p>{{ post.body }}</p>
+        <!-- Admin can delete post -->
         {% if request.user.is_superuser %}
         <a href="{% url 'delete_post' post.slug %}" class="btn btn-sm btn-danger float-end">Delete Post</a>
         {% endif %}
@@ -25,23 +26,23 @@
 </section>
 
 <!-- Leave a comment -->
-
 <section class="container mt-4">
 
     <div class="w-50 p-5 mx-auto border border-dark top-color rounded">
-
-        <form action="." method="POST">
+        <!-- Comment form -->
+        <form method="POST">
             {% csrf_token %}
             <h5>Leave us a comment</h5>
             <div>
                 <div>
                     {{ form.body | as_crispy_field }}
+                    <!-- User must be logged in to comment -->
                     {% if user.is_authenticated %}
                     <button class="btn btn-sm btn-success float-end" type="submit">Comment!</button>
                     {% else %}
                     <p>Sorry! You have to be logged in to leave comments</p>
-                    <a href="{% url 'account_login' %}" class="btn btn-sm btn-success float-end">Login/a>
-                        {% endif %}
+                    <a href="{% url 'account_login' %}" class="btn btn-sm btn-dark">Login</a>
+                    {% endif %}
                 </div>
                 <br>
 
@@ -62,8 +63,8 @@
     </div>
     {% endfor %}
     {% else %}
+    <!-- If there is no comments -->
     <div class="text-center">
-
         <strong>No comments yet!</strong>
         <hr class="w-50 mx-auto">
     </div>

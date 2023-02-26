@@ -11,12 +11,13 @@
 <!-- Navigation bar -->
 {% include 'navbar.html' %}
 
+<!-- Checkout section -->
 <section class="container border border-dark rounded mt-4 p-2">
 
     <h2 class="mt-5 text-center">Checkout</h2>
     <hr class="w-50 mx-auto ">
 
-    <div class="row m-2">
+    <div class="row">
         <div class="col-12 col-lg-6 order-lg-last mb-5">
             <p class="text-muted">Order Summary ({{ product_count }})</p>
             <div class="row">
@@ -27,6 +28,7 @@
                     <p class="mb-1 mt-0 small text-muted">Subtotal</p>
                 </div>
             </div>
+            <!-- Cart contents -->
             {% for item in bag_items %}
             <div class="row">
                 <div class="col-2 mb-1">
@@ -47,6 +49,7 @@
             {% endfor %}
             <hr class="my-0">
             <div class="row text-black text-right">
+                <!-- Cart Summary -->
                 <div class="col-7 offset-2">
                     <p class="my-0">Order Total:</p>
                     <p class="my-0">Delivery:</p>

@@ -2,8 +2,6 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.template.defaultfilters import slugify
 
-# Create your models here.
-
 
 class BlogPost(models.Model):
     title = models.CharField(max_length=255)
@@ -15,6 +13,7 @@ class BlogPost(models.Model):
     class Meta:
         ordering = ['-date_created']
 
+    # Generates a unique slug for blog post
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
         super(BlogPost, self).save(*args, **kwargs)

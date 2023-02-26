@@ -10,7 +10,7 @@
 
 <section class="container mt-4">
 
-
+    <!-- Displays items in users cart if there is any -->
     {% if bag_items %}
 
     <h2>Shopping Cart
@@ -52,6 +52,7 @@
         </tbody>
     </table>
     <div class="w-50 mx-auto text-center pt-2">
+        <!-- Summary of users cart totals and delivery charge -->
         <h3>Cart Summary
             <hr>
         </h3>
@@ -65,14 +66,15 @@
             <p>Delivery: €0.00 </p>
             {% endif %}
             <p><strong>Grand Total: €{{ grand_total | floatformat:2 }}</strong></p>
+            <!-- Link to checkout -->
             <a class="btn btn-outline-dark" href="{% url 'checkout' %}">Proceed to checkout</a>
     </div>
     {% else %}
+    <!-- Message returned if users bag is empty -->
     <div class="text-center">
         <h2><strong>Your Shopping Cart is empty!</strong></h2>
         <hr>
-
-
+        <!-- Link to products page -->
         <p>You can fill it up <a class="btn btn-sm btn-success" href="{% url 'products' %}">here!</a> </p>
     </div>
 

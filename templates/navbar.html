@@ -63,7 +63,10 @@
                 <li class="nav-item col">
                     <a class="nav-link" href="{% url 'occasions' %}">Occasions</a>
                 </li>
-
+                <!-- Blog section link -->
+                <li class="nav-item col">
+                    <a class="nav-link" href="{% url 'blog_posts' %}">Best Blogs</a>
+                </li>
                 <!-- Account dropdown menu -->
                 <li class="nav-item col dropdown">
                     <a class="nav-link dropbtn" href="{% url 'account' %}" data-bs-hover="dropdown">Accounts
@@ -80,10 +83,6 @@
                         <li><a href="{% url 'account_login' %}" class="dropdown-item">Login</a></li>
                         {% endif %}
                     </ul>
-                </li>
-                <!-- Blog section link -->
-                <li class="nav-item col">
-                    <a class="nav-link" href="{% url 'blog_posts' %}">Best Blogs</a>
                 </li>
             </ul>
         </div>

@@ -12,6 +12,7 @@
 {% include 'navbar.html' %}
 
 <section class="container border border-dark rounded mt-4 p-2">
+    <!-- Order Success message -->
 
     <div class="text-center">
         <h2 class="mt-5">Thanks for your purchase!</h2>
@@ -19,6 +20,7 @@
         <p>A confirmation email has been sent to <strong>{{ order.email }}</strong></p>
     </div>
 
+    <!-- Order Information -->
     <div class="row m-2 pt-2">
         <div class="col-lg-6">
             <div>
@@ -45,6 +47,7 @@
                 <p>Order Total: {{ order.grand_total }}</p>
             </div>
         </div>
+        <!-- Delivery information -->
         <div class="col-lg-6">
             <div class="w-100">
                 <h3>Delivery Info:</h3>
@@ -61,6 +64,7 @@
                 <p>Contact Number: {{ order.phone_number }}</p>
             </div>
         </div>
+        <!-- Link to return to previous page -->
         {% if from_account %}
         <a href="{% url 'account' %}" class="btn btn-success mt-1"><i class="fa-solid fa-arrow-left"></i> Back to My
             Account</a>

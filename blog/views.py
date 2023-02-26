@@ -49,7 +49,7 @@ def post_details(request, slug):
 
 @login_required
 def add_post(request):
-    """ Add a new post to blog """
+    """ Admins can add a new post to blog """
     if not request.user.is_superuser:
         messages.error(
             request, 'Sorry! Only authorised users have access to this.')
@@ -77,7 +77,7 @@ def add_post(request):
 
 @login_required
 def delete_post(request, slug):
-    """ Removes a post from blog """
+    """ Admins can remove a post from blog """
 
     if not request.user.is_superuser:
         messages.error(

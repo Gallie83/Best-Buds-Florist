@@ -4,6 +4,7 @@ from products.models import Product
 
 
 def bag_contents(request):
+    """ Calculates users cart contents and delivery charge"""
 
     bag_items = []
     total = 0
@@ -21,6 +22,7 @@ def bag_contents(request):
             'product': product,
         })
 
+    # Calculates if user has spent enough for free delivery
     if total < settings.FREE_DELIVERY_THRESHOLD:
         free_delivery_delta = settings.FREE_DELIVERY_THRESHOLD - total
     else:
