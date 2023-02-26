@@ -37,9 +37,3 @@ class UserProfile(models.Model):
             UserProfile.objects.create(user=instance)
             # If user already exists, save the profile
         instance.userprofile.save()
-
-
-class ProfilePicture(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    picture = models.ImageField(
-        upload_to='media/profiles', null=True, default='media/profiles/none/no-img.png')
