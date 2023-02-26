@@ -14,18 +14,15 @@
     <h2 class="text-center">Posts</h2>
     <hr class="w-50 mx-auto">
     {% if posts %}
-    {% for post in reviews %}
+    {% for post in posts %}
     <div class="w-50 p-3 m-1 mx-auto border border-dark lighter-color rounded">
         <strong>{{ post.title }}</strong>
         <small>-{{ post.date_created }}</small>
         <br>
         <p>
             {{ post.intro }}
-            {% if user.name == review.user_id %}
-            <a href="{% url 'delete_review' customer_review.id %}" class="btn btn-sm btn-danger float-end">Delete
-                Review</a>
-            {% endif %}
         </p>
+        <a href="{% url 'post_details' post.slug %}" class="btn btn-sm btn-success float-end">Read post</a>
     </div>
     {% endfor %}
     {% else %}
