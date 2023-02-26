@@ -56,7 +56,9 @@ def add_post(request):
 
     if request.method == 'POST':
         form = PostForm(request.POST)
+
         if form.is_valid():
+
             post = form.save()
             messages.success(request, 'Post Added!')
             return redirect(reverse('blog_posts'))
@@ -72,3 +74,20 @@ def add_post(request):
     }
 
     return render(request, 'blog/add_post.html', context)
+
+
+@login_required
+def delete_post(request, slug):
+    """ Removes a post from blog """
+
+    if not request.user.is_superuser:
+        messages.error(
+            request, 'Sorry! Only authorised users have access to this.')
+        return redirect(reverse('home'))
+
+    post = BlogPost.objects.get(slug=slug)
+
+    post.delete()
+    messages.success(request, f'Blog Post deleted!')
+
+    return redirect(reverse('blog_posts'))

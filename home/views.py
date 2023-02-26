@@ -21,9 +21,3 @@ def occasions(request):
     """ Returns occasions.html """
 
     return render(request, 'home/occasions.html')
-
-
-def funerals(request):
-    """ Returns funerals.html """
-
-    return render(request, 'home/funerals.html')

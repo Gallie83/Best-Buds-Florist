@@ -16,6 +16,10 @@
         <br>
         <p><strong>{{ post.intro }}</strong></p>
         <p>{{ post.body }}</p>
+        {% if request.user.is_superuser %}
+        <a href="{% url 'delete_post' post.slug %}" class="btn btn-sm btn-danger float-end">Delete Post</a>
+        {% endif %}
+
     </div>
 
 </section>

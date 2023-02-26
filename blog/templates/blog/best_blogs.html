@@ -7,6 +7,13 @@
 <!-- Navigation bar -->
 {% include 'navbar.html' %}
 
+{% if request.user.is_superuser %}
+<div class="w-50 mx-auto">
+    <a href="{% url 'add_post' %}" class="sort-by float-end btn btn-success" type="button">
+        New Post <i class="fa-solid fa-sm fa-plus"></i>
+    </a>
+</div>
+{% endif %}
 
 <!-- Display of posts -->
 <section class="container mt-4">
