@@ -35,7 +35,6 @@ body {
 }
 
 .navbar {
-    /* background-color: var(--top); */
     background-color: var(--top);
 }
 
@@ -143,7 +142,6 @@ footer {
 
 
 /* Product Form */
-
 .btn-file {
     position: relative;
     overflow: hidden;
@@ -238,6 +236,7 @@ label:hover~input:checked~label {
     }
 }
 
+/* Removes small-screen navbar on large screens */
 @media screen and (min-width:993px) {
     #small-screen-navbar {
         display: none;
@@ -247,6 +246,7 @@ label:hover~input:checked~label {
 
 @media screen and (max-width:880px) {
 
+    /* Hides carousel on small screens */
     #carouselExampleIndicators {
         display: none;
     }
@@ -256,6 +256,7 @@ label:hover~input:checked~label {
     }
 }
 
+/* Removes carousels small-screen substitute on large screens */
 @media screen and (min-width:880px) {
     .home-details {
         display: none;

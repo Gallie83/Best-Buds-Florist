@@ -8,6 +8,6 @@ def handle_not_found(request, exception):
 
 
 def handle_server_error(request):
-    """ Handles unrecognised URLS """
+    """ Handles error pages """
 
     return render(request, 'home/server-error.html')
