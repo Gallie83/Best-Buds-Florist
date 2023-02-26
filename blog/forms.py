@@ -1,5 +1,12 @@
 from django import forms
-from .models import Comments
+from .models import BlogPost, Comments
+
+
+class PostForm(forms.ModelForm):
+
+    class Meta:
+        model = BlogPost
+        fields = ['title', 'slug', 'intro', 'body']
 
 
 class CommentForm(forms.ModelForm):
