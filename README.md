@@ -16,8 +16,38 @@ Best buds is a fictional florist shop that specialises in bouquets and indoor pl
     *  [User Stories](<#user-stories>)
     *  [Wireframes](<#wireframes>)
     * [Design Choices](<#design-choices>)
-
-
+* [**Features**](<#features>)
+    * [Navbar](<#navbar>)
+    * [Home Page](<#home-page>)
+    * [Products](<#products>)
+    * [Product Details](<#product-details>)
+    * [Occasions](<#occasions>)
+    * [Best Blogs](<#best-blogs>)
+    * [My Account](<#my-account>)
+    * [Django-allauth Features](<#django-allauth-features>)
+    * [Add Product](<#add-product>)
+    * [Login](<#login>)
+    * [Cart](<#cart>)
+    * [Checkout](<#checkout>)
+    * [Order Confirmation](<#order-confirmation>)
+    * [Footer](<#footer>)
+    * [Toasts](<#toasts>)
+* [**Future Features**](<#future-features>)
+* [**Technologies Used**](<#technologies-used>)
+    * [Languages](<#languages>)
+    * [Frameworks & Software](<#frameworks--software>)
+* [**Testing**](<#testing>)
+    * [Testing User Stories](<#testing-user-stories>)
+    * [Responsiveness](<#responsiveness>)
+    * [Code Validation](<#code-validation>)
+    * [Debugging](<#debugging>)
+* [**Deployment**](<#deployment>)
+    * [Heroku Deployment with AWS](<#heroku-deployment-with-aws>)
+    * [Local Deployment](<#local-deployment>)
+* [**Credits**](<#credits>)
+    * [Contents](<#contents>)
+    * [Media](<#media>)
+* [**Acknowledgements**](<#acknowledgements>)
 
 # Website Goals
 ## Target Audience
@@ -198,7 +228,7 @@ Users can customise their delivery information to make checking out quicker. Fro
 
 ![Account](media/readme/account.png)
 
-## Django-allauth features
+## Django-allauth Features
 For all login and registration features on this website, [djgano-allauth](https://django-allauth.readthedocs.io/en/latest/) was used.
 - Sign Up: The users will be asked to fill out `E-mail`, `User Name` and `Password` to create an account. When the sign up form is submitted, a verification email will be sent to the user's email address to complete the sign up process.
 - Log In: Users will be asked to input `User Name` or `Email`, and `Password` to login. If the user successfully logged in, a success message will pop up and redirect to the landing page.
@@ -278,6 +308,8 @@ Toasts have been used throughout this website as a way of informing both the adm
 
 * Allow users to refine their product sorting even more. At the moment they can only sort products with a single filter(by price or by type) but ideally they would be able to sort by price while also filtering by type of product.
 
+[Back to top](<#contents>)
+
 # Technologies Used
 
 ## Languages
@@ -305,6 +337,8 @@ Toasts have been used throughout this website as a way of informing both the adm
 * [HTML Validation](https://validator.w3.org/) - Used to validate HTML code
 * [CSS Validation](https://jigsaw.w3.org/css-validator/) - Used to validate CSS code
 * [Stripe](https://stripe.com/ie) - Used for all the websites payment functionality
+
+[Back to top](<#contents>)
 
 # Testing
 
@@ -442,6 +476,7 @@ Another problem I faced was images not rendering when I first deployed my site t
 
 ![Context Processor](media/readme/context_processor.png)
 
+[Back to top](<#contents>)
 
 # Deployment
 ## Heroku Deployment with AWS
@@ -588,14 +623,16 @@ os.environ["STRIPE_WH_SECRET"] = "<Your Stripe WH Secret Key>"
 6. Create a superuser for the Postgres database by running with `python manage.py createsuperuser`
 7. Now you can access the app using the command `python manage.py runserver`
 
+[Back to top](<#contents>)
+
 # Credits
-### Content
+## Content
 
 * The font used came from [Google Fonts](https://fonts.google.com/).
 * All code, except where otherwise specified, was written by me - Kevin Gallagher.
 * The name for the website came from my girlfriend - Lisa.
 
-### Media
+## Media
 * All images came from [Unsplash](https://unsplash.com/).
 * The Logo for the business came from [Logo](https://logo.com/)
 [Back to top](<#contents>)
