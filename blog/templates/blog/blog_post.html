@@ -29,6 +29,7 @@
 <section class="container mt-4">
 
     <div class="w-50 p-5 mx-auto border border-dark top-color rounded">
+        {% if user.is_authenticated %}
         <!-- Comment form -->
         <form method="POST">
             {% csrf_token %}
@@ -37,16 +38,15 @@
                 <div>
                     {{ form.body | as_crispy_field }}
                     <!-- User must be logged in to comment -->
-                    {% if user.is_authenticated %}
                     <button class="btn btn-sm btn-success float-end" type="submit">Comment!</button>
-                    {% else %}
-                    <p>Sorry! You have to be logged in to leave comments</p>
-                    <a href="{% url 'account_login' %}" class="btn btn-sm btn-dark">Login</a>
-                    {% endif %}
                 </div>
                 <br>
-
             </div>
+        </form>
+        {% else %}
+        <p>Sorry! You have to be logged in to leave comments</p>
+        <a href="{% url 'account_login' %}" class="btn btn-sm btn-dark">Login</a>
+        {% endif %}
 </section>
 
 <!-- Display of comments -->

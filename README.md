@@ -125,7 +125,11 @@ The first thing that appears under the navbar on the home screen is a carousel(o
 
 ![Carousel Image](media/readme/carousel.png)
 
-This is followed by a a Collections section, showing the different cateogies that the business specialises in.
+The second slide on the carousel points towards the Indoor Plants section with a corresponding link.
+
+![Carousel second slide](media/readme/carousel2.png)
+
+This is followed by a Collections section, showing the different cateogies that the business specialises in.
 
 ![Collections Image](media/readme/collections.png)
 
@@ -136,9 +140,7 @@ The last piece of content on the home page is the About Us section, which docume
 ## Products
 
 The products page displays a list of all the products unless a user has searched or sorted for a certain type of product. The product card host basic information on each product such as a products image, name, price and what type of product it is.
-
 There is a dropdown button at the top of the page, giving users an option to sort the way products are displayed in a variety of different ways.
-
 If the user is logged in as an admin, small links appear on each card allowing them to edit or delete products.
 
 ![Products page](media/readme/products.png)
@@ -148,6 +150,109 @@ If the user is logged in as an admin, small links appear on each card allowing t
 This page displays all the information available about a product from the image and price to the description. The user can add the product to their cart from here aswell.
 
 ![Product Details](media/readme/product-details.png)
+
+If the user adds an item to their cart, they receive a toast notification to confirm it has been added with a summary on the item they have added, as well as their carts current total and a link to view their cart.
+
+![Added to cart](media/readme/added-to-cart.png)
+
+Below the product details section is a review section, where logged in users can review products they have bought and document their experience. 
+
+![Review Section](media/readme/review-section.png)
+
+Below this shows all the previous reviews for that product and allows customers to delete reviews that they have left. After a review has been submitted, the customer also receives visual confirmation that they have posted a review.
+
+![Customer Review](media/readme/customer-review.png)
+
+## Occasions
+
+This page details the business ability to cater for different events. The wedding section describes how excited and passionate the business is about catering for weddings, while the funerals page shows that the business handles funerals with professionalism and understanding.
+
+![Occasions](media/readme/occasions.png)
+
+## Best Blogs
+
+The Best Blogs section allows customers to keep up to date with the business and directly interact with blog posts. A button appears at the top of the page for admins to add posts. Each post displayed here has the posts title, intro and date posted, if the user wants to read more they just have to click into the post.
+
+![Best Blog](media/readme/best-blog.png)
+
+Upon clicking into the post, the user can now see all the posts information. Underneath this, logged in customers are encouraged to leave a comment. Admin users can also delete posts from here.
+
+![Blog Post](media/readme/blog-post.png)
+
+Underneath the comment form is a list of all the comments for that post with information like when it was posted and by who. After a comment is posted, a toast pops up to tell the user their comment was successful.
+
+![Blog Comment](media/readme/blog-comment.png)
+
+
+Admins have access to the Add a blog post page. To create a post they only have to enter a title, intro and the body of the blog. This is then met with a toast confirmation. 
+
+![Add Post](media/readme/add-blog.png)
+
+## My Account
+
+Users can customise their delivery information to make checking out quicker. From this page they can also access any previous orders they have made and view any order history information.
+
+![Account](media/readme/account.png)
+
+## Add Product
+
+Admin user are able to add products from this page. They fill out a form with of all the products information, then they receive a toast to confirm its been added to the online store and be redirected to the new products page.
+
+![Add Product](media/readme/add-product.png)
+
+![New Product](media/readme/test-add.png)
+
+## Login
+
+I used django allauth for all user account and registration. All allauth templates have been styled in the same way with the flower heart image adjascent to whichever allauth form is currently in use.
+
+![Login](media/readme/login.png)
+
+![Register](media/readme/register.png)
+
+## Cart
+
+The users cart displays all the items they have added and gives users the option to update the quantity or remove an item from their bag entirely. At the bottom of this page the user can see a breakdown of their total and whether or not they have reached the free delivery amount. If they have not, there is a prompt letting them know how much more they need to spend.
+Underneath this, there is a button that will take them to the checkout page.
+
+![Cart](media/readme/cart.png)
+
+If their cart is empty, there will be a button to the products page, incentivising them to add products to their cart.
+
+![Empty Cart](media/readme/empty-cart.png)
+
+## Checkout
+
+On the checkout page, the user must now enter all their delivery and payment details and they are given the option if they want their delivery information saved. Next to this is another summary of their current cart. 
+Below their payment information is a 'Complete Order' button where the amount the user will be charged is also displayed. Once this button is clicked, [Stripe](https://stripe.com/ie) then handle the payment and the user is brought to an order confirmation page.
+
+![Checkout](media/readme/checkout.png)
+
+## Order Confirmation
+
+Upon completing an order, a user is brought to the order confirmation page where they can see all their order details from a recap of their order to all their delivery details. They also receive a message informing them that they will receive a confirmation email and a toast notification will appear with the order number.
+
+![Order Confirmation](media/readme/confirmation.jpg)
+
+## Footer
+
+The footer for this website has been kept very basic, storing only the link to their facebook account and contact information 
+
+![Footer](media/readme/footer.png)
+
+## Toasts
+
+Toasts have been used throughout this website as a way of informing both the admin and the user of their actions. From confirming a user has added a product to their cart, to letting an admin know that they have successfully deleted a product, toasts have been a fundamental part of the user experience.
+
+![Toast](media/readme/toast1.png)
+![Toast](media/readme/toast2.png)
+
+
+
+
+
+
+
 
 
 
