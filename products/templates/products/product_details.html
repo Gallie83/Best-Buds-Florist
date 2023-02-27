@@ -75,6 +75,7 @@
             <h5>Write Your Review</h5>
 
             <div>
+                {% if user.is_authenticated %}
                 <!-- Rating stars -->
                 <label>How do you rate this product?</label>
                 <br>
@@ -103,16 +104,16 @@
                 <div>
                     {{ product_review_form.title | as_crispy_field }}
                     {{ product_review_form.review | as_crispy_field }}
-                    {% if user.is_authenticated %}
                     <button class="btn btn-sm btn-success float-end" type="submit">Submit review</button>
-                    {% else %}
-                    <p>Sorry! You have to be logged in to leave reviews</p>
-                    <a href="{% url 'account_login' %}" class="btn btn-sm btn-success float-end">Login</a>
-                    {% endif %}
                 </div>
-                <br>
+                {% else %}
+                <p>Log in to leave reviews!</p>
 
+                <a href="{% url 'account_login' %}" class="btn btn-sm btn-success float-end">Login</a>
+                {% endif %}
+                <br>
             </div>
+        </form>
 </section>
 
 <!-- Display of reviews -->
