@@ -227,7 +227,7 @@ label:hover~input:checked~label {
 
     /* Prevents navbar overlapping content */
     body {
-        padding-top: 3rem;
+        padding-top: 2.5rem;
     }
 
     /* Prevents sort button being hidden by navbar */

@@ -16,8 +16,6 @@ Best buds is a fictional florist shop that specialises in bouquets and indoor pl
     *  [User Stories](<#user-stories>)
     *  [Wireframes](<#wireframes>)
     * [Design Choices](<#design-choices>)
-    *  [Typography](<#typography>)
-    *  [Colour Scheme](<#colour-scheme>)
 
 
 
@@ -98,8 +96,16 @@ Best buds is a fictional florist shop that specialises in bouquets and indoor pl
 
 ### Colour Scheme
 
-* For the colour scheme of this website, I wanted to use a palette with earthy tones that complimented its products. After searching through many colour palettes I decided on this one. I used [Coolors](https://coolors.co/) to browse through the colour schemes.
+* For the colour scheme of this website, I wanted to use a palette with earthy tones that complimented its products. After searching through many colour palettes I decided on this one. I used [Coolors](https://coolors.co/) to browse through the colour schemes. I decided on this palette as I felt it really complimented the Best Buds logo.
 
 ![Colour Palette](media/readme/colour-palette.png)
 
-* I decided on this palette as I felt it really complimented the Best Buds logo.
+### Typography
+ 
+* For the typography of the website I decided to stay with the original bootstrap font for most of the page as it is aesthetically pleasing and very legible. I used [Dancing Script](https://fonts.google.com/specimen/Dancing+Script?query=dancing+script) from google fonts for the small navbar title and for the carousel heading as I thought it looked elegant and fit the vibe of the website. 
+
+![Font Image](media/readme/carousel.png)
+
+
+
+
