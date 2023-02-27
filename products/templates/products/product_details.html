@@ -150,6 +150,7 @@
 
 {% block postloadjs %}
 {{ block.super }}
+<!-- Removes flex wrapper on this page as it was adding too much height on large screens -->
 <script type="text/javascript">
     $(document).ready(function () {
         $('.flex-wrapper').removeClass('flex-wrapper');

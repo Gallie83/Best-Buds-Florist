@@ -198,6 +198,13 @@ Users can customise their delivery information to make checking out quicker. Fro
 
 ![Account](media/readme/account.png)
 
+## Django-allauth features
+For all login and registration features on this website, [djgano-allauth](https://django-allauth.readthedocs.io/en/latest/) was used.
+- Sign Up: The users will be asked to fill out `E-mail`, `User Name` and `Password` to create an account. When the sign up form is submitted, a verification email will be sent to the user's email address to complete the sign up process.
+- Log In: Users will be asked to input `User Name` or `Email`, and `Password` to login. If the user successfully logged in, a success message will pop up and redirect to the landing page.
+- Log out: Log out page is accessible from the site menu. After the user successfully signed out button on the sign out page, a success message will appear and redirect to the landing page.
+- Forgot password: Forgot password page is accessible from Sign In page. Users will be asked to put in an email address which they have used for their registration to the site. An email with a link to reset the password will be sent after submitting the form.
+
 ## Add Product
 
 Admin user are able to add products from this page. They fill out a form with of all the products information, then they receive a toast to confirm its been added to the online store and be redirected to the new products page.
@@ -392,17 +399,10 @@ Toasts have been used throughout this website as a way of informing both the adm
     * Site users that are logged in have access to the admin panel through the URL.
 
 
+## Responsiveness
+The website is responsive accross all screen sizes. On small screen sizes the images and content stack ontop each other. The website was tested on the following browsers with no visible issues for the user. Google Chrome, Microsoft Edge and Mozilla Firefox.
 
-
-
-
-
-
-
-  * ### Responsiveness
-      * The website is responsive accross all screen sizes. On small screen sizes the images and content stack ontop each other. The website was tested on the following browsers with no visible issues for the user. Google Chrome, Microsoft Edge and Mozilla Firefox.
-
-      * The responsive design tests were carried out manually with [Google Chrome DevTools](https://developer.chrome.com/docs/devtools/).
+The responsive design tests were carried out manually with [Google Chrome DevTools](https://developer.chrome.com/docs/devtools/).
 
 |        | Moto G4 | Galaxy S5 | iPhone 5 | iPad | Display <1200px | Display >1200px |
 |--------|---------|-----------|----------|------|-----------------|-----------------|
@@ -410,3 +410,199 @@ Toasts have been used throughout this website as a way of informing both the adm
 | Images | pass    | pass      | pass     | pass | pass            | pass            |
 | Links  | pass    | pass      | pass     | pass | pass            | pass            |
 
+## Code Validation
+
+HTML validation was done through [W3C HTML Validator](https://validator.w3.org/nu/)
+
+At first there were a number of errors but upon fixing these, the website passed everything
+
+![HTML Validator](media/readme/w3c-valid.png)
+
+CSS validation was done through [W3C CSS Validator](https://jigsaw.w3.org/css-validator/)
+
+![CSS Validator](media/readme/css-valid.png)
+
+Chromes [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview/) was used to test this websites performance
+
+![Lighthouse](media/readme/lighthouse.png)
+
+## Debugging
+
+While trying to deploy my project I ran into this error when I tried to load my fixtures to elephantSQL. I would get the error "UnicodeDecodeError: 'utf-8' codec can't decode byte 0xff in position 0: invalid start byte".
+After much research into this topic which I didn't understand very well, I found [this video](https://www.youtube.com/watch?v=GkKHCL3Ngyk). The video detailes that to stop this error, you must go into the json.py file where the terminal states there is an error and add "UTF-16" to the Deserializer function.
+
+Another problem I was faced in this websites production was this. While coding the review section of the website, everything was working smoothly on my local server. When I would commit, push and then test it on heroku however, I would get this error message.
+
+![Bug image](media/readme/debug-img.png)
+
+After researching the problem I was having I found the issue was that I had not synced my databases and need to run 'git push heroku' aswell.
+I found the solution on this [Stack Overflow thread](https://stackoverflow.com/questions/38134535/django-on-heroku-relation-does-not-exist)
+
+Another problem I faced was images not rendering when I first deployed my site to heroku. The MEDIA_URL was being completely bypassed for the image and I couldnt figure out why. The source of this problem was being cause because I had forgotten to add context_proccesors.py. 
+
+![Context Processor](media/readme/context_processor.png)
+
+
+# Deployment
+## Heroku Deployment with AWS
+This website is deployed on [Heroku](https://www.heroku.com/), following these steps:
+1. Install these packages to your local environment, since these packages are required to deploy a Django project on Heroku.
+- [gnicorn](https://gunicorn.org/): `gnicorn` is Python WSGI(web server gataway interface) server for UNIX.
+- [psycopg2-binary](https://pypi.org/project/psycopg2-binary/): `psycopg2-binary` is PostgreSQL database adapter for the Python programming language.
+- [dj-database-url](https://pypi.org/project/dj-database-url/): `dj-database-url` allows you to utilize the 12factor inspired DATABASE_URL environment variable to configure your Django application.
+2. Create a `requirements.txt` file and freeze all the modules with the command `pip freeze > requirements.txt` in the terminal.
+3. Create a `Procfile` write `web: gunicorn <app_name>.wsgi:application` in the file.
+4. `git add` and `git commit` and `git push` all the changes to the Github repository of this project.
+5. Go to Heroku and create a **new app**. Set a name for this app and select the closest region (Europe) and click **Create app**.
+6. Go to **Resources** tab in Heroku, then in the **Add-ons** search bar look for **Heorku Postgres**(you can type postgres), select **Hobby Dev — Free** and click **Submit Order Form** button to add it to your project.
+7. In the heroku dashboard for the application, click on **Setting** > **Reveal Config Vars** and set the values as follows:
+
+| Key | Value |
+| ----------- | ----------- |
+| AWS_ACCESS_KEY_ID | `Your AWS Access Key` |
+| AWS_SECRET_ACCESS_KEY | `Your AWS Secret Access Key` |
+| DATABASE_URL | `Your Postgres Database URL` |
+| EMAIL_HOST_PASS | `Your Email Password (generated by Gmail)` |
+| EMAIL_HOST_USER | `Your Email Address` |
+| SECRET_KEY | `Your Secret Key` |
+| STRIPE_PUBLIC_KEY | `Your Stripe Public Key` |
+| STRIPE_SECRET_KEY | `Your Stripe Secret Key` | 
+| STRIPE_WH_SECRET | `Your Stripe WH Key` |
+| USE_AWS | `True` |
+
+* I used [Mini Web Tool](https://miniwebtool.com/django-secret-key-generator/) to generate Django Secret Key.
+
+8. Comment out the current database setting in settings.py, and add the code below instead. This is done temporarily to migrate the datbase on Heroku.
+```
+  DATABASES = {     
+        'default': dj_database_url.parse("<your Postrgres database URL here>")     
+    }
+```
+9. Migrate the database models to the Postgres database using the following commands in the terminal:
+`python3 manage.py migrate`
+10. Load the data fixtures into the Postgres database using the following command:
+`python3 manage.py loaddata <fixture_name>`
+11. Create a superuser for the Postgres database by running the following command:
+`python3 manage.py createsuperuser <superuser_name>`
+12. Replace the database setting with the code below, so that the right database is used depending on development/deployed environment.
+```
+if 'DATABASE_URL' in os.environ:
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+    }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
+```
+13. Disable collect static, so that Heroku won't try to collect static file with: `heroku config:set DISABLE_COLLECTSTATIC=1`
+14. Add `'best-buds.herokuapp.com', 'localhost', '127.0.0.1'` to `ALLOWED_HOSTS` in settings.py.
+```
+ALLOWED_HOSTS = ['best-buds.herokuapp.com', 'localhost', '127.0.0.1']
+```
+15. In Stripe, add Heroku app URL a new webhook endpoint.
+16. Update the settings.py with the new Stripe environment variables and email settings.
+17. Commit all the changes to Heroku. Medial files are not connected to the app yet but the app should be working on Heroku.
+
+### Amazon Web Service S3
+The static files and media files for this deployed site are hosted in the [AWS](https://aws.amazon.com/) S3 Bucket. You will need to create S3 bucket, complete the setting up and upload static files and media files to the S3 bucket. You can find [Amazon S3 documentation](https://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html) for more information on the setting.
+I used CORS configuration below:
+```
+[
+  {
+      "AllowedHeaders": [
+          "Authorization"
+      ],
+      "AllowedMethods": [
+          "GET"
+      ],
+      "AllowedOrigins": [
+          "*"
+      ],
+      "ExposeHeaders": []
+  }
+]
+```
+
+- Setting for static/media files in settings.py
+1. Install `boto3` and `django-storages` with a command `pip install boto3` and `pip install django-storages` in your terminal, to connect AWS S3 bucket to Django.
+2. Add 'storages' to `INSTALLED_APPS` in settings.py.
+3. Add the following in settings.py.
+```
+if 'USE_AWS' in os.environ:
+    AWS_S3_OBJECT_PARAMETERS = {
+        'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
+        'CacheControl': 'max-age=94608000',
+    }
+    AWS_STORAGE_BUCKET_NAME = 'best-buds'
+    AWS_S3_REGION_NAME = 'eu-west-1'
+    AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+    AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+    AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+
+    STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+    STATICFILES_LOCATION = 'static'
+    DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+    MEDIAFILES_LOCATION = 'media'
+
+    STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
+    MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
+```
+5. Add custom_storages.py
+6. Delete DISABLE_COLLECTSTATIC from Heroku Config Var.
+7. Push all the changes to Github/Heroku and all the static files will be uploaded to S3 bucket.
+By setting up above, Heroku will run python manage.py collectstatic during the build process and look for static and media files.
+
+### Automatic Deploy on Heroku
+You can enable automatic deploy in the following steps that pushes update to Heroku everytime you push to github.
+1. Go to Deploy in Heroku dashboard.
+2. At `Automatic deploys`, choose a github repository you want to deploy.
+3. Click `Enable Automatic Deploys`.
+
+
+## Local Deployment
+For local deployment, you need to have an IDE (I used Gitpod for this project) and you need to install the following:
+- Git, Python3, PIP3
+Also, you need to create account in the following services if you don't own yet:
+- Stripe, AWS (S3 bucket), Gmail
+
+1. In the IDE you are using, copy and paste the following commane into the terminal to clone this repository.
+    `git clone https://github.com/Gallie83/Best-Buds-Florist.git`
+(the other ways to clone a repository are written in this [GitHub documentation](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository))
+2. Set up environment variable in your selected IDE, or you can create `.env` file in your root directory and add `.env` to `.gitignore` file, and add the followings to the `.env` file.
+```
+import os  
+os.environ["DEVELOPMENT"] = "True"    
+os.environ["SECRET_KEY"] = "<Your Secret Key>"
+os.environ["STRIPE_PUBLIC_KEY"] = "<Your Stripe Public Key>"    
+os.environ["STRIPE_SECRET_KEY"] = "<Your Stripe Secret Key>"    
+os.environ["STRIPE_WH_SECRET"] = "<Your Stripe WH Secret Key>"    
+```
+3. Install all the required packages with `pip install -r requirements.txt`
+4. Migrate the models to crete a database using in your IDE with `python manage.py makemigrations` and `python manage.py migrate`
+5. Load the data fixtures into the database using the following command:
+`python manage.py loaddata <fixture_name>`
+6. Create a superuser for the Postgres database by running with `python manage.py createsuperuser`
+7. Now you can access the app using the command `python manage.py runserver`
+
+# Credits
+### Content
+
+* The font used came from [Google Fonts](https://fonts.google.com/).
+* All code, except where otherwise specified, was written by me - Kevin Gallagher.
+* The name for the website came from my girlfriend - Lisa.
+
+### Media
+* All images came from [Unsplash](https://unsplash.com/).
+* The Logo for the business came from [Logo](https://logo.com/)
+[Back to top](<#contents>)
+
+# Acknowledgements
+The site was completed as a Portfolio 5 Project piece for the Full Stack Software Developer Diploma at [Code Institute](https://codeinstitute.net/). I would like to thank my mentor [Precious Ijege](https://www.linkedin.com/in/precious-ijege-908a00168/), the Slack community, and all at Code Institute for their help and support. 
+
+Kevin Gallagher 2023.
+
+[Back to top](<#contents>)
