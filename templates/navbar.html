@@ -1,4 +1,75 @@
 {% load static %}
+<!-- Small screen navbar -->
+<nav id="small-screen-navbar" class="navbar navbar-expand-lg border-bottom border-dark fixed-top mb-5">
+    <div class="container-fluid">
+        <a class="navbar-brand dancing-font" href="{% url 'home' %}">
+            <h1>Best Buds</h1>
+        </a>
+        <!-- Cart icon with current total -->
+        <ul>
+            <li class="list-inline-item">
+                <a href="{% url 'view_bag' %}" class="link-dark m-2"><i class="fa-solid fa-cart-shopping"></i>
+                    €{{ total }}
+                </a>
+            </li>
+        </ul>
+        <!-- Dropdown button -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <!-- Search bar -->
+                <form method="GET" action="{% url 'products' %}" class="d-flex mt-1" role="search">
+                    <input class="form-control me-2" name="q" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-sm btn-outline-dark" type="submit">Search</button>
+                </form>
+                <!-- Home link -->
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+                </li>
+                <!-- Products dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Products
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{% url 'collections' %}">Collections</a></li>
+                        <li><a class="dropdown-item" href="{% url 'products' %}?type=SP">Specials/Accessories</a></li>
+                        <li><a class="dropdown-item" href="{% url 'products' %}?type=BQ">Bouquets</a></li>
+                        <li><a class="dropdown-item" href="{% url 'products' %}?type=IP">Indoor Plants</a></li>
+                    </ul>
+                </li>
+                <!-- Occasions link -->
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'occasions' %}">Occasions</a>
+                </li>
+                <!-- Accounts dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-bs-hover="dropdown">Accounts
+                    </a>
+                    <ul class="dropdown-menu">
+                        {% if request.user.is_authenticated %}
+                        {% if request.user.is_superuser %}
+                        <li><a href="{% url 'add_product' %}" class="dropdown-item">Add Product</a></li>
+                        {% endif %}
+                        <li><a href="{% url 'account' %}" class="dropdown-item">My Account</a></li>
+                        <li><a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a></li>
+                        {% else %}
+                        <li><a href="{% url 'account_signup' %}" class="dropdown-item">Register</a></li>
+                        <li><a href="{% url 'account_login' %}" class="dropdown-item">Login</a></li>
+                        {% endif %}
+                    </ul>
+                </li>
+                <!-- Blog section link -->
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'blog_posts' %}">Best Blogs</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
 
 <!-- Large screen navbar -->
 <nav id="large-screen-navbar" class="navbar navbar-expand-lg text-center border">
@@ -83,78 +154,6 @@
                         <li><a href="{% url 'account_login' %}" class="dropdown-item">Login</a></li>
                         {% endif %}
                     </ul>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
-
-<!-- Small screen navbar -->
-<nav id="small-screen-navbar" class="navbar navbar-expand-lg border-bottom border-dark fixed-top mb-5">
-    <div class="container-fluid">
-        <a class="navbar-brand dancing-font" href="{% url 'home' %}">
-            <h1>Best Buds</h1>
-        </a>
-        <!-- Cart icon with current total -->
-        <div>
-            <li class="list-inline-item">
-                <a href="{% url 'view_bag' %}" class="link-dark m-2"><i class="fa-solid fa-cart-shopping"></i>
-                    €{{ total }}
-                </a>
-            </li>
-        </div>
-        <!-- Dropdown button -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <!-- Search bar -->
-                <form method="GET" action="{% url 'products' %}" class="d-flex mt-1" role="search">
-                    <input class="form-control me-2" name="q" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-sm btn-outline-dark" type="submit">Search</button>
-                </form>
-                <!-- Home link -->
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
-                </li>
-                <!-- Products dropdown -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Products
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="{% url 'collections' %}">Collections</a></li>
-                        <li><a class="dropdown-item" href="{% url 'products' %}?type=SP">Specials/Accessories</a></li>
-                        <li><a class="dropdown-item" href="{% url 'products' %}?type=BQ">Bouquets</a></li>
-                        <li><a class="dropdown-item" href="{% url 'products' %}?type=IP">Indoor Plants</a></li>
-                    </ul>
-                </li>
-                <!-- Occasions link -->
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'occasions' %}">Occasions</a>
-                </li>
-                <!-- Accounts dropdown -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-bs-hover="dropdown">Accounts
-                    </a>
-                    <ul class="dropdown-menu">
-                        {% if request.user.is_authenticated %}
-                        {% if request.user.is_superuser %}
-                        <li><a href="{% url 'add_product' %}" class="dropdown-item">Add Product</a></li>
-                        {% endif %}
-                        <li><a href="{% url 'account' %}" class="dropdown-item">My Account</a></li>
-                        <li><a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a></li>
-                        {% else %}
-                        <li><a href="{% url 'account_signup' %}" class="dropdown-item">Register</a></li>
-                        <li><a href="{% url 'account_login' %}" class="dropdown-item">Login</a></li>
-                        {% endif %}
-                    </ul>
-                </li>
-                <!-- Blog section link -->
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'blog_posts' %}">Best Blogs</a>
                 </li>
             </ul>
         </div>
