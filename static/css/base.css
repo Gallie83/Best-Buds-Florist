@@ -254,6 +254,11 @@ label:hover~input:checked~label {
     .products-image {
         height: 10rem;
     }
+
+
+    .card-image {
+        width: 90%;
+    }
 }
 
 /* Removes carousels small-screen substitute on large screens */
