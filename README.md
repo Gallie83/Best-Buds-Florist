@@ -5,7 +5,7 @@ Best buds is a fictional florist shop that specialises in bouquets and indoor pl
 
 ![Best Buds home page](media/readme/best-buds-homepage.png)
 
-# Table of Content
+# Contents
 
 * [**Website Goals**](<#website-goals>)
     * [Target Audience](<#target-audience>)
@@ -63,7 +63,7 @@ Best buds is a fictional florist shop that specialises in bouquets and indoor pl
 * As a customer I want visual confirmation when adding or removing from my cart.
 * As a customer I want to be able to see how much is currently in my cart on any page.
 * As a customer I want to be able to receive email confirmation that I have made an order.
-* As a customer I want my cart to clearly display each item's quantity with a cart summary.
+* As a customer I want to clearly see a summary of my cart before checkout is complete to ensure the order details are correct.
 * As a customer I want to see an order confirmation after checkout with all the orders details.
 
 ### Site Admin
@@ -86,6 +86,8 @@ For smaller screens I created a second navbar that would replace the original. I
 
 ![Small navbar image](media/readme/small-navbar.png)
 
+[Back to top](<#contents>)
+
 ## Design Choices
 
 ### Logo
@@ -105,6 +107,8 @@ For the colour scheme of this website, I wanted to use a palette with earthy ton
 For the typography of the website I decided to stay with the original bootstrap font for most of the page as it is aesthetically pleasing and very legible. I used [Dancing Script](https://fonts.google.com/specimen/Dancing+Script?query=dancing+script) from google fonts for the small navbar title and for the carousel heading as I thought it looked elegant and fit the vibe of the website. 
 
 ![Font Image](media/readme/carousel.png)
+
+[Back to top](<#contents>)
 
 # Features 
 
@@ -247,6 +251,145 @@ Toasts have been used throughout this website as a way of informing both the adm
 ![Toast](media/readme/toast1.png)
 ![Toast](media/readme/toast2.png)
 
+[Back to top](<#contents>)
+
+# Future Features
+
+* Currently, any user who is logged in is able to review a product, whether they have purchsed it or not. In future versions of this project I aim to limit reviews to people who have actually purchased the product.
+
+* Allow admins to make draft blog posts that they can save and come back to before posting.
+
+* Allow admins to edit blog posts without having to delete the original and rewrite each post. I was not able to implement this feature due to time contraints.
+
+* Have a page where admins are able to monitor how many users they have, how many orders are being made daily and gives them notifications when users leave a review or blog comment. 
+
+* Allow users to delete/edit comments on posts. Again, this feature was not implemented due to time contraints with the project deadline.
+
+* Display the average rating of the product on the product details page.
+
+* Allow customers to track their order.
+
+* Allow users to refine their product sorting even more. At the moment they can only sort products with a single filter(by price or by type) but ideally they would be able to sort by price while also filtering by type of product.
+
+# Technologies Used
+
+## Languages
+
+* [Python](https://en.wikipedia.org/wiki/Python_(programming_language)) - Provides the functionality for the site.
+* [HTML5](https://en.wikipedia.org/wiki/HTML) - Provides the frontend content and structure for the website.
+* [CSS3](https://en.wikipedia.org/wiki/CSS) - Provides the all stylings throughout the website.
+* [JavaScript](https://en.wikipedia.org/wiki/JavaScript) - Provides interactive elements of the website
+
+## Frameworks & Software
+* [Bootstrap](https://getbootstrap.com/) - A CSS framework that helps building solid, responsive, mobile-first sites
+* [Django](https://www.djangoproject.com/) - A model-view-template Python framework used to throughout site
+* [Figma](https://figma.com/) - Used to create the wireframe.
+* [Git](https://git-scm.com/) - Used for version control
+* [Github](https://github.com/) - Used to host and edit the website.
+* [Heroku](https://en.wikipedia.org/wiki/Heroku) - A cloud platform that the application is deployed to.
+* [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview/) - Used to test performance of site.
+* [Favicon](https://favicon.io/) - Used to create the favicon.
+* [VSCode](https://code.visualstudio.com/) - Used for writing all the websites code.
+* [Google Chrome DevTools](https://developer.chrome.com/docs/devtools/) - Used to debug and test responsiveness.
+* [Trello](https://trello.com/en-GB) - A project management tool to organize the project.
+* [Amazon Web Services](https://aws.amazon.com/) - A service that hosts all static files and images in the project.
+* [PostgreSQL](https://www.postgresql.org/) - Database used for production
+* [ElephantSQL](https://www.elephantsql.com/) - A PostgreSQL database hosting service.
+* [HTML Validation](https://validator.w3.org/) - Used to validate HTML code
+* [CSS Validation](https://jigsaw.w3.org/css-validator/) - Used to validate CSS code
+* [Stripe](https://stripe.com/ie) - Used for all the websites payment functionality
+
+# Testing
+
+## Testing User Stories
+
+### Viewing And Navigation
+
+* As a site user I want to quickly see what products and services are available.
+
+    * There is a link to view all products and product types from the navbar as well as a link to the occassions page which has information about the business' catering.
+     
+* As a site user I want to be able to click on a product to find out more information about it.
+
+    * Clicking on product card from the products page directs the user to the products detail page which has all product information.
+
+* As a site user I want to have access to the website through any device.
+
+    * Website is * [responsive](<#responsiveness>) on all screen sizes and browsers.
+
+* As a site user I want to have access to all pages through the navbar.
+
+    * Navigation links for each page are available through the navbar
+
+* As a site user I want to be able to sort products in different ways(A-Z/By Price).
+
+    * At the top of the products page there is a Sort By dropdown button which has a variety of ways site users can sort products.
+
+* As a site user I want to be able to search the whole store for products.
+
+    * In the navbar there is a search form. This form does not only check if the searched words are in the title, but also if they appear in the description.
+
+* As a site user I want to be able to view contact information for the business.
+
+    * Contact information for the business is available in the footer.
+
+### Registration And User Accounts
+
+* As a customer I want to be able to be able to easily register an account.
+
+    * A navigation link to the registration page can be found under the Accounts dropdown.
+
+* As a customer I want to be able to store my information with my profile to make the checkout process quicker.
+
+    * Logged in customers can either update their delivery information from their account page, or click the 'Save my Information' button from the checkout page.
+
+* As a customer I want to be able to view my order history.
+
+    * Customer can see their whole order history from their Account page, as well as click into each order for all available information regarding that order.
+
+* As a customer I want to be able to review products I've purchased. 
+
+    * Logged in customers can leave reviews on products by going to the details page of that product and filling out the review form below the products information section.
+
+* As a customer I want to be able to interact with blog posts.
+
+    * Logged in customers are able to leave comments below blog posts by clicking into the blog posts page and filling out the comment section below the post.
+
+### Products and Purchasing
+
+* As a customer I want visual confirmation when adding or removing from my cart.
+
+    * Upon adding, removing or changing the an item's quantity, the customer receives a toast pop up to confirm their action.
+
+* As a customer I want to be able to see how much is currently in my cart on any page.
+
+    * On any screen size, a cart icon with the current total of the customers cart is available at the navbar at all times.
+
+* As a customer I want to be able to receive email confirmation that I have made an order.
+
+    * Upon completing an order, the customer is brought to a checkout success page where a message will appear, confirming that they will receive email confirmation. They will shortly after receive a personalised message with all the orders information.
+
+* As a customer I want to clearly see a summary of my cart before checkout is complete to ensure the order details are correct.
+
+    * A summary of the customers cart(all items names, quantities, the cart's subtotal and delivery cost) appears on the cart page, the checkout page and then again once the order has been completed on the checkout success page.
+
+* As a customer I want to see an order confirmation after checkout with all the orders details.
+
+    * Once an order has been placed, the user will be brought to the checkout success page where they will receive both a summary of the orders details, a message stating they will receive email confirmation, and also a toast pop up of the order number.
+
+* As a Site Admin I want to be able to create, read, update and delete products and blog posts. 
+
+    * Site admins are able to create, read update and delete products with ease either through the Add Product link on the navbar or the products page.
+
+    * Unfortunately admins are only able to create read or delete blog posts at the moment as editing blog posts functionality has yet to be added.
+
+* As a Site Admin I want to be receive visual confirmation that I have created updated or deleted a product/post.
+
+    * Upon creating, updating or deleting a product/post, the admin will receive a toast with a message confirming their actions.
+
+* As a Site Admin I want to be able to access the admin panel.
+
+    * Site users that are logged in have access to the admin panel through the URL.
 
 
 
@@ -255,4 +398,15 @@ Toasts have been used throughout this website as a way of informing both the adm
 
 
 
+
+  * ### Responsiveness
+      * The website is responsive accross all screen sizes. On small screen sizes the images and content stack ontop each other. The website was tested on the following browsers with no visible issues for the user. Google Chrome, Microsoft Edge and Mozilla Firefox.
+
+      * The responsive design tests were carried out manually with [Google Chrome DevTools](https://developer.chrome.com/docs/devtools/).
+
+|        | Moto G4 | Galaxy S5 | iPhone 5 | iPad | Display <1200px | Display >1200px |
+|--------|---------|-----------|----------|------|-----------------|-----------------|
+| Render | pass    | pass      | pass     | pass | pass            | pass            |
+| Images | pass    | pass      | pass     | pass | pass            | pass            |
+| Links  | pass    | pass      | pass     | pass | pass            | pass            |
 
