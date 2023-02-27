@@ -76,7 +76,7 @@ Best buds is a fictional florist shop that specialises in bouquets and indoor pl
 
 ## Wireframes
 
-* These wireframes were produced in [Figma](https://figma.com). I made frames for a full width display and then modeled for smaller screens once I had designed the full width diplay. The finished site varies slightly from the wireframes due to developments that occured during the creation process.
+* These wireframes were produced in [Figma](https://figma.com). I made frames for a full width display and then modeled for smaller screens once I had designed the full width diplay. The finished site varies slightly from the wireframes due to developments that occured during the creation process. I then scaled down the site and stacked content to fit it on smaller devices.
 
 ![Desktop wireframe image](media/readme/home-wireframe.png)
 ![Desktop wireframe image](media/readme/products-wireframe.png)
@@ -105,6 +105,43 @@ Best buds is a fictional florist shop that specialises in bouquets and indoor pl
 * For the typography of the website I decided to stay with the original bootstrap font for most of the page as it is aesthetically pleasing and very legible. I used [Dancing Script](https://fonts.google.com/specimen/Dancing+Script?query=dancing+script) from google fonts for the small navbar title and for the carousel heading as I thought it looked elegant and fit the vibe of the website. 
 
 ![Font Image](media/readme/carousel.png)
+
+# Features 
+
+## Navbar
+
+* This website uses two navbars, one for large screens and another for smaller screens. Both navbars show the current carts total at all times. They both have links to all available pages on the website.
+
+![Large Navbar image](media/readme/large-nav.png)
+
+
+* For smaller screens I created a second navbar that would replace the original. I did this as the original navbar looked very messy on smaller screens. In this navbar I replaced the business logo with an elegant font that is also used in the image carousel.
+
+![Small navbar image](media/readme/small-navbar.png)
+
+## Home Page
+
+* The first thing that appears under the navbar on the home screen is a carousel(on small screens a div) that welcomes users to the site and lets users know that delivery on orders over 30 euro is free. This has a link to the products page directly below this to entice customers to view their products.
+
+![Carousel Image](media/readme/carousel.png)
+
+* This is followed by a a Collections section, showing the different cateogies that the business specialises in.
+
+![Collections Image](media/readme/collections.png)
+
+* The last piece of content on the home page is the About Us section, which documents the business and its morales.
+
+![About us image](media/readme/about-us.png)
+
+## Products
+
+* The products page displays a list of all the products unless a user has searched or sorted for a certain type of product. The product card host basic information on each product such as a products image, name, price and what type of product it is.
+
+* There is a dropdown button at the top of the page, giving users an option to sort the way products are displayed in a variety of different ways.
+
+* If the user is logged in as an admin, small links appear on each card allowing them to edit or delete products.
+
+![Products page](media/readme/products.png)
 
 
 
