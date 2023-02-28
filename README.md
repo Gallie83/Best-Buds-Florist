@@ -316,6 +316,8 @@ Toasts have been used throughout this website as a way of informing both the adm
 
 * Allow users to refine their product sorting even more. At the moment they can only sort products with a single filter(by price or by type) but ideally they would be able to sort by price while also filtering by type of product.
 
+* Allow users to add profile pictures, to add an extra level of personalisation to the users website experience. 
+
 [Back to top](<#contents>)
 
 # Technologies Used
@@ -347,6 +349,44 @@ Toasts have been used throughout this website as a way of informing both the adm
 * [Stripe](https://stripe.com/ie) - Used for all the websites payment functionality
 
 [Back to top](<#contents>)
+
+# Models
+
+## Accounts
+
+* For the model in my accounts app, I have UserProfile. This model is used for storing all users and their delivery information together.
+
+![UserProfile](media/readme/user-profile.png)
+
+* In my blog app I have 2 models, BlogPost and Comments.
+
+The BlogPost model is used for posts that the business makes to their blog. The admin enters a title, intro, and body and the date and time it is made is recorded. The slug is used as a way of identifying posts from one another, so when the admin creates a post, a new and unique slug is made for that specific post.
+
+![BlogPost](media/readme/blog-post-model.png)
+
+The Comments model is used for a user leaving a comment on a post. This model is directly connected to the BlogPost model by using the 'post' field as a foreign key. The 'user' field references the current user who is leaving the comment and the body field is the actual content the user inputs. The date and time the comment is made is also recorded.
+
+![Comments](media/readme/comments.png)
+
+* In the checkout app, 2 models are used. The Order model and the OrderLineItem model.
+
+The Order model represents all information on about an order, from all the users delivery information and order number to purchase information and delivery cost. The 'user' field references the UserProfile as a foreign key. 
+
+![Order](media/readme/order.png)
+
+The OrderLineItem represents each item in the users cart when checking out. The Order model is refernced as a foreign key, as is the product which refernces the Product model from the products app. This model also includes the quantity of the product and the line item total as a decimal field.
+
+![OrderLineItem](media/readme/order-line-item.png)
+
+* In the Products app there are 2 models, the Product app and ReviewRating app.
+
+The Product model represents the products available on the store. The sku is how each item is identified while all the other fields such as name, description, image, price, and type are information about the physical product itself. 
+
+![Product](media/readme/product.png)
+
+Lastly, the ReviewRating model is used for when a customer leaves a review. It refernces the product that the review is being left about through the 'product' foreign key field, and the 'user' field points to the user that is currently logged in. The title, review and rating is then the actual content of the review.
+
+![ReviewRating](media/readme/review-rating.png)
 
 # Testing
 
