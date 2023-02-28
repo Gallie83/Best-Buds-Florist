@@ -175,9 +175,13 @@ This is followed by a Collections section, showing the different cateogies that 
 
 ![Collections Image](media/readme/collections.png)
 
-The last piece of content on the home page is the About Us section, which documents the business and its morales.
+The About Us section which document the business and its morales.
 
 ![About us image](media/readme/about-us.png)
+
+The last piece of content on the home page is the mailchimp sign up form where site users can subscribe to receive updates from the business.
+
+
 
 ## Products
 
