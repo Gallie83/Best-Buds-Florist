@@ -181,7 +181,7 @@ The About Us section which document the business and its morales.
 
 The last piece of content on the home page is the mailchimp sign up form where site users can subscribe to receive updates from the business.
 
-
+![MailChimp](media/readme/mailchimp.png)
 
 ## Products
 
