@@ -259,6 +259,11 @@ label:hover~input:checked~label {
     .card-image {
         width: 85%;
     }
+
+    /* Expands comment section on small screens */
+    .comment {
+        width: 75%;
+    }
 }
 
 /* Removes carousels small-screen substitute on large screens */

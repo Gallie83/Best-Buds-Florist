@@ -10,6 +10,7 @@ Best buds is a fictional florist shop that specialises in bouquets and indoor pl
 * [**Website Goals**](<#website-goals>)
     * [Target Audience](<#target-audience>)
     * [Brand Image](<#brand-image>)
+    * [Facebook](<#facebook>)
 * [**Project Management**](<#project-management>)
     *  [Trello](<#trello>)
 * [**User Experience**](<#user-experience-ux>)
@@ -59,6 +60,13 @@ Best buds is a fictional florist shop that specialises in bouquets and indoor pl
 * Best buds brand image is that they are a website built by flower enthusiasts, for flower enthusiasts. Every part of this website has been designed to show that above all else, the business cares for it's product as much as it's customers.
 
 ![About us image](media/readme/about-us.png)
+
+## Facebook
+
+* The social media presence for the website is fairly simple. Given more time, the business' social media advertising would be given much more attention as it is an extremely effect method of brand exposure.
+
+![Facebook Image](media/readme/facebook.png)
+
 
 # Project Management
 
@@ -420,7 +428,7 @@ Toasts have been used throughout this website as a way of informing both the adm
 
 * As a Site Admin I want to be able to create, read, update and delete products and blog posts. 
 
-    * Site admins are able to create, read update and delete products with ease either through the Add Product link on the navbar or the products page.
+    * Site admins are able to create, read update and delete products with ease either through the Add Product link on the navbar or the products page. They will also receive a pop up message asking them to confirm they want to delete something.
 
     * Unfortunately admins are only able to create read or delete blog posts at the moment as editing blog posts functionality has yet to be added.
 
@@ -473,6 +481,8 @@ After researching the problem I was having I found the issue was that I had not 
 I found the solution on this [Stack Overflow thread](https://stackoverflow.com/questions/38134535/django-on-heroku-relation-does-not-exist)
 
 Another problem I faced was images not rendering when I first deployed my site to heroku. The MEDIA_URL was being completely bypassed for the image and I couldnt figure out why. The source of this problem was being cause because I had forgotten to add context_proccesors.py. 
+
+![Bug Image](media/readme/debug-img2.png)
 
 ![Context Processor](media/readme/context_processor.png)
 
