@@ -52,12 +52,13 @@
                     {% if request.user.is_superuser %}
                     <div class="row">
                         <a href="{% url 'edit_product' product.id %}" class="col-6 text-success"><small>Edit</small></a>
-                        <a href="{% url 'delete_product' product.id %}" class="col-6 text-danger float-right"
-                            id=""><small>Delete</small></a>
+                        <a href="{% url 'delete_product' product.id %}"
+                            onclick="return confirm('Are you sure you want to delete?');"
+                            class="col-6 text-danger float-right"><small>Delete</small></a>
                     </div>
                     {% endif %}
                 </div>
-                <a class="btn border border-dark float-start mt-3" href="{% url 'products' %}"><i
+                <a class="btn border border-dark float-lg-start mt-3" href="{% url 'products' %}"><i
                         class="fa-solid fa-arrow-left"></i> Keep Shopping</a>
             </div>
         </div>
@@ -131,7 +132,9 @@
             {{ customer_review.review }}
             <!-- User can delete their own reviews -->
             {% if user.name == review.user_id %}
-            <a href="{% url 'delete_review' customer_review.id %}" class="btn btn-sm btn-danger float-end">Delete
+            <a href="{% url 'delete_review' customer_review.id %}"
+                onclick="return confirm('Are you sure you want to delete?');"
+                class="btn btn-sm btn-danger float-end">Delete
                 Review</a>
             {% endif %}
         </p>

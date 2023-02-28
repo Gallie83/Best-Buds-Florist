@@ -356,7 +356,7 @@ Toasts have been used throughout this website as a way of informing both the adm
 
 * As a site user I want to have access to the website through any device.
 
-    * Website is * [responsive](<#responsiveness>) on all screen sizes and browsers.
+    * Website is [responsive](<#responsiveness>) on all screen sizes and browsers.
 
 * As a site user I want to have access to all pages through the navbar.
 
