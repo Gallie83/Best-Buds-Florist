@@ -1,7 +1,7 @@
 # **Best Buds**
 Best buds is a fictional florist shop that specialises in bouquets and indoor plants. Located in Dublin, Ireland, Best Buds has a big focus on interacting with their consumer base. The website allows customers to make accounts that stores their information, which then also allows them to leave reviews on products. The website also has a blog section called 'Best Blogs' where they keep customers up to date on new products or even events the business might host. The blog allows customers to comment on posts and interact with each other, strenghtening their connection with their customers.
 
-[Live Website](https://best-buds.herokuapp.com/)
+Note: This website is currently not live due to changes in Heroku's free-tier policies. However, the full source code is available in this repository, and screenshots of the app are provided below.
 
 ![Best Buds home page](media/readme/best-buds-homepage.png)
 
